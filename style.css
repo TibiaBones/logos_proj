@@ -1,1 +1,129 @@
+.body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
 
+.hallway-background {
+    max-width: 1500px;
+    background-color: #5C5A5B;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.hallway-info {
+    color: #F0F0F0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    margin-top: 180px;
+    padding: 0 20px 0;
+}
+
+.hallway-text {
+    font-weight: 500;
+}
+
+.hallway-header {
+    font-size: 50px;
+}
+
+.hallway-image {
+    height: 900px;
+    width: 900px;
+    object-fit: cover;
+}
+
+.offer-background {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1500px;
+}
+
+.title {
+    height: 150px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: #3f3e3f;
+    margin-bottom: 50px;
+}
+
+.offer-container {
+    max-width: 1400px;
+    margin: 50px auto 0;
+    display: flex;
+    justify-content: center;
+}
+
+.offer-cart {
+    height: 200px;
+    width: 500px;
+    margin: 0 25px;
+    background-color: #afaeae;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.offer-image {
+    height: 200px;
+    width: 160px;
+    object-fit: cover;
+}
+
+.textMain {
+    margin: 20px 20px 0;
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #F0F0F0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.textSec {
+    margin: 20px 20px 0;
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #F0F0F0;
+    font-size: 15px;
+}
+
+.priсe-background {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1500px;
+    background-color: #ffffff;
+}
+
+.priсe-container {
+    margin: 50;
+    display: flex;
+    justify-content: center;
+    margin: 50px 50px 0;
+}
+
+.price-cart {
+    width: 270px;
+    height: 500px;
+    background-color: #5c5c5c;
+    margin: 0 25px 0;
+}
+
+.price-image {
+    width: 270px;
+    height: 270px;
+    object-fit: cover;
+}
+
+.price-textTitle {
+    text-align: center
+}
+
+.price-flexContainer {
+    display: flex;
+    justify-content: center;
+}
