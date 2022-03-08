@@ -1,3 +1,63 @@
+:root {
+    --Text-color-Main: #F0F0F0;
+    --Dark-gray: #5C5A5B;
+    --Secondary-gray: #686868;
+    --Light-gray: #afaeae;
+    /* --General-Blue: #10367C;
+    --Accent-Blue: #3077c6;
+    --Accent-Yellow: #F5BD41;
+    --Dark-Mode-1: #121212;
+    --Dark-Mode-2: #1D1E1F;
+    --Dark-Mode-3: #4D4D4D;
+    --Stroke-color-Main: #F3F3F4;
+    --Text-color-Main: #383838;
+    --General-White: #FFFFFF;
+    --Secondary-Text: #BFBFBF;
+    --bg-color-Main: #EAF0F9; */
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: var(--Text-color-Main);
+}
+
+a:after {
+    display: block;
+    position: relative;
+    top: -3px;
+    right: calc((100% - (100% - 10px)) / -2);
+    background-color: #552b69;
+    width: 0;
+    height: 3px;
+    content: "";
+    transition: width 0.2s ease-out;
+}
+
+a:visited {
+    color: var(--Text-color-Main);
+}
+
+
+/* a:hover {
+    color: #154088;
+} */
+
+a:hover:after {
+    width: calc(100% - 10px);
+}
+
+a:focus:after {
+    width: calc(100% - 10px);
+}
+
+
+/* a:active {
+    color: #497DDD;
+} */
+
 .body {
     font-family: Arial, Helvetica, sans-serif;
     font-style: normal;
@@ -6,7 +66,7 @@
 
 .hallway-background {
     max-width: 1500px;
-    background-color: #5C5A5B;
+    background-color: var(--Dark-gray);
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -14,7 +74,7 @@
 }
 
 .hallway-info {
-    color: #F0F0F0;
+    color: var(--Text-color-Main);
     font-family: Arial, Helvetica, sans-serif;
     font-style: normal;
     margin-top: 180px;
@@ -79,7 +139,7 @@
     margin: 20px 20px 0;
     display: block;
     font-family: Arial, Helvetica, sans-serif;
-    color: #F0F0F0;
+    color: var(--Text-color-Main);
     font-size: 20px;
     font-weight: 600;
 }
@@ -109,7 +169,7 @@
 .price-cart {
     width: 270px;
     height: 500px;
-    background-color: #5c5c5c;
+    background-color: var(--Secondary-gray);
     margin: 0 25px 0;
 }
 
@@ -126,4 +186,35 @@
 .price-flexContainer {
     display: flex;
     justify-content: center;
+}
+
+.footer-background {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1500px;
+    background-color: var(--Dark-gray);
+    margin: 120px auto 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--Text-color-Main);
+}
+
+.footer-flexContainer {
+    margin: 50px 100px 100px;
+}
+
+.footer-flexContainer-sec {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.footer-title {
+    font-size: 25px;
+}
+
+.footer-links {
+    /* display: block; */
+    font-size: 15px;
+    line-height: 2;
 }
