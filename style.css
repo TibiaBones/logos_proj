@@ -3,6 +3,9 @@
     --Dark-gray: #5C5A5B;
     --Secondary-gray: #686868;
     --Light-gray: #afaeae;
+    --White: #ffffff;
+    --Dark-purple: #552b69;
+    --Light-purple: #825f92;
     /* --General-Blue: #10367C;
     --Accent-Blue: #3077c6;
     --Accent-Yellow: #F5BD41;
@@ -29,7 +32,7 @@ a:after {
     position: relative;
     top: -3px;
     right: calc((100% - (100% - 10px)) / -2);
-    background-color: #552b69;
+    background-color: var(--Dark-purple);
     width: 0;
     height: 3px;
     content: "";
@@ -106,9 +109,11 @@ a:focus:after {
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 30px;
     font-weight: 600;
+    background-color: var(--White);
     color: #3f3e3f;
     margin-bottom: 50px;
 }
@@ -124,7 +129,7 @@ a:focus:after {
     height: 200px;
     width: 500px;
     margin: 0 25px;
-    background-color: #afaeae;
+    background-color: var(--Light-gray);
     display: flex;
     justify-content: flex-start;
 }
@@ -156,7 +161,7 @@ a:focus:after {
     margin-left: auto;
     margin-right: auto;
     max-width: 1500px;
-    background-color: #ffffff;
+    background-color: var(--White);
 }
 
 .priсe-container {
@@ -186,6 +191,48 @@ a:focus:after {
 .price-flexContainer {
     display: flex;
     justify-content: center;
+}
+
+.application-background {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1500px;
+}
+
+.application-form {
+    width: 100%;
+}
+
+.application-inputsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: var(--Light-gray);
+    padding-top: 50px;
+}
+
+.application-input {
+    display: block;
+    width: 30%;
+    height: 50px;
+    background-color: #d1d1d1;
+    border: 1px solid var(--Light-purple);
+    padding: 0 20px;
+    border-radius: 8px;
+}
+
+.application-inputUserName {
+    margin-bottom: 30px;
+}
+
+.application-inputPhoneNumber {
+    margin-bottom: 50px;
 }
 
 .footer-background {
