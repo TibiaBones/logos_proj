@@ -19,7 +19,40 @@
     --bg-color-Main: #EAF0F9; */
 }
 
-a {
+.footer-background .footer-flexContainer-sec a {
+    text-decoration: none;
+}
+
+.footer-background .footer-flexContainer-sec a:link {
+    color: var(--Text-color-Main);
+}
+
+.footer-background .footer-flexContainer-sec a:after {
+    display: block;
+    position: relative;
+    top: -3px;
+    right: calc((100% - (100% - 10px)) / -2);
+    background-color: var(--Dark-purple);
+    width: 0;
+    height: 3px;
+    content: "";
+    transition: width 0.2s ease-out;
+}
+
+.footer-background .footer-flexContainer-sec a:visited {
+    color: var(--Text-color-Main);
+}
+
+.footer-background .footer-flexContainer-sec a:hover:after {
+    width: calc(100% - 10px);
+}
+
+.footer-background .footer-flexContainer-sec a:focus:after {
+    width: calc(100% - 10px);
+}
+
+
+/* a {
     text-decoration: none;
 }
 
@@ -43,22 +76,12 @@ a:visited {
     color: var(--Text-color-Main);
 }
 
-
-/* a:hover {
-    color: #154088;
-} */
-
 a:hover:after {
     width: calc(100% - 10px);
 }
 
 a:focus:after {
     width: calc(100% - 10px);
-}
-
-
-/* a:active {
-    color: #497DDD;
 } */
 
 .body {
@@ -234,6 +257,50 @@ a:focus:after {
 .application-inputPhoneNumber {
     margin-bottom: 50px;
 }
+
+.gallery-background {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1500px;
+    background-color: var(--White);
+}
+
+.gallery-slider {
+    /* position: relative; */
+    max-width: 100%;
+    /* height: ; */
+}
+
+.gallery-img {
+    object-fit: cover;
+    width: 100%;
+    /* height: ; */
+}
+
+.prev,
+.next {
+    cursor: pointer;
+    /* оформить кнопки */
+}
+
+
+/* разобраться с анимацией */
+
+
+/* .gallery-sliderItem {
+    animation-name: fade;
+    animation-duration: 1.5s;
+} */
+
+
+/* @keyframes fade {
+    from {
+        opacity: 0.4
+    }
+    to {
+        opacity: 1
+    }
+} */
 
 .footer-background {
     display: flex;
