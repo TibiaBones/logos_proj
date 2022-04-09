@@ -68,92 +68,32 @@
 </section>
 
 <section class="priсe-background">
-    <span class="title">Наши цены</span>
+    <span class="title">Наши цены</span>    
+        
+        <div class="priсe-container">
+            {% for header in list_pricing_item_layer %}    
+            <div class="price-cart">
 
-    <div class="priсe-container">
-        <div class="price-cart">
+                <img class="price-image" src="{{header.img}}" alt="img">
+                
+                <span class="textMain price-textTitle">{{header.name}}</span>
+                {% for desc in list_pricing_item %}
+                {% if desc.id_layer==header.id %}
+                <div class="price-flexContainer">
+                    <div class="priсe-sizeContainer">
+                        <span class="textSec">{{desc.size}}</span>
+                    </div>
 
-            <img class="price-image" src="static/images/zatychka4.png" alt="img">
-
-            <span class="textMain price-textTitle">Эмблемы в 1 слой</span>
-
-            <div class="price-flexContainer">
-                <div class="priсe-sizeContainer">
-                    <span class="textSec">30см</span>
-                    <span class="textSec">50см</span>
-                    <span class="textSec">70см</span>
-                    <span class="textSec">90см</span>
+                    <div class="priсe-correspPriceContainer">
+                        <span class="textSec">{{desc.coast}}</span>
+                    </div>
                 </div>
-
-                <div class="priсe-correspPriceContainer">
-                    <span class="textSec">45 руб</span>
-                    <span class="textSec">65 руб</span>
-                    <span class="textSec">85 руб</span>
-                    <span class="textSec">110 руб</span>
-                </div>
-            </div>
-
+                {% endif %}
+                {% endfor %}
+            </div>            
+            {% endfor %}    
         </div>
-
-        <div class="price-cart">
-
-            <img class="price-image" src="static/images/arsenalLogo.png" alt="img">
-
-            <span class="textMain price-textTitle">Эмблемы в 2 слоя</span>
-
-            <div class="price-flexContainer">
-                <div class="priсe-sizeContainer">
-                    <span class="textSec">30см</span>
-                    <span class="textSec">50см</span>
-                    <span class="textSec">70см</span>
-                    <span class="textSec">90см</span>
-                </div>
-
-                <div class="priсe-correspPriceContainer">
-                    <span class="textSec">50 руб</span>
-                    <span class="textSec">70 руб</span>
-                    <span class="textSec">90 руб</span>
-                    <span class="textSec">120 руб</span>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="price-cart price-textTitle">
-
-            <img class="price-image" src="static/images/zatychka1.png" alt="img">
-
-            <span class="textMain">Эмблемы в оригинале</span>
-
-            <div class="price-flexContainer">
-                <div class="priсe-sizeContainer">
-                    <span class="textSec">30см</span>
-                    <span class="textSec">50см</span>
-                    <span class="textSec">70см</span>
-                    <span class="textSec">90см</span>
-                </div>
-
-                <div class="priсe-correspPriceContainer">
-                    <span class="textSec">55 руб</span>
-                    <span class="textSec">80 руб</span>
-                    <span class="textSec">100 руб</span>
-                    <span class="textSec">140 руб</span>
-                </div>
-            </div>
-
-
-        </div>
-
-        <div class="price-cart price-textTitle">
-            <img class="price-image" src="static/images/illuminatedLogo.jpg" alt="img">
-
-            <span class="textMain">Эмблемы с подсветкой</span>
-
-            <span class="textSec">55 руб</span>
-        </div>
-
-    </div>
-
+        
 </section>
 
 <section class="gallery-background">
@@ -219,4 +159,4 @@
         <!-- <a class="footer-links">@mail.com</a> -->
     </div>
 </footer>
-{% endblock %}  
+{% endblock %}
