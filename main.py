@@ -18,9 +18,9 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 app.config['dbconfig'] = {'host': '127.0.0.1',
-                          'user': '4pu_user',
-                          'password': '4pu_passwd',
-                          'database': 'sportlogodb', }
+                          'user': 'sportlogo',
+                          'password': 'sportlogo',
+                          'database': 'sportlogo', }
 
 
 @app.route('/')
