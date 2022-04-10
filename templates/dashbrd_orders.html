@@ -1,0 +1,77 @@
+{% extends 'dashbrd.html' %}
+{% block body %}
+<!--<div id="layoutSidenav_content">-->
+    <div>
+    <div>
+        <div class="container-fluid px-4">
+            <h1 class="mt-4">Заявки</h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                <li class="breadcrumb-item active">Tables</li>
+            </ol>
+            <div class="card mb-4">
+                <div class="card-body">
+                    DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
+                    <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
+                    .
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    DataTable Example
+                </div>
+                <div class="card-body">
+                    <table id="datatablesSimple">
+                        <thead>
+                            <tr>
+                                <th>#id</th>
+                                <th>Date</th>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Messqge</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Communications</th>
+                                <th>IP</th>
+                                <th>Browser</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>#id</th>
+                                <th>Date</th>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Messqge</th>
+                                <th>Email</th>
+                                <th>Phone</th>                                
+                                <th>Communications</th>
+                                <th>IP</th>
+                                <th>Browser</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            {% for item in list_orders %}
+                            <tr>                                
+                                <td>{{item.id}}</td>
+                                <td>{{item.date}}</td>
+                                <td><img style="width: 100px" src="{{item.image}}"></td>
+                                <td>{{item.name}}</td>
+                                <td>{{item.message}}</td>
+                                <td>{{item.email}}</td>
+                                <td>{{item.phone}}</td>
+                                <td>{{item.communications}}</td>
+                                <td>{{item.ip}}</td>
+                                <td>{{item.browser}}</td>                               
+                            </tr>
+                            {%endfor%}                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+{%endblock%}

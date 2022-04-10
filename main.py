@@ -23,6 +23,46 @@ app.config['dbconfig'] = {'host': '127.0.0.1',
                           'database': 'sportlogo', }
 
 
+class Orders:
+    def __init__(self,id, date, image, message, name, email, phone, communications, ip, browser) -> None:
+        self.id=id
+        self.date=date
+        self.image=image        
+        self.message=message
+        self.name=name
+        self.email=email
+        self.phone=phone    
+        self.communications=communications
+        self.ip=ip
+        self.browser=browser
+    def add_short_order(req: 'flask_request'):
+        f = request.files['File']
+        filename = secure_filename(f.filename)
+        f.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        #"File saved successfully"
+        emblema=os.path.join(app.config['UPLOAD_FOLDER'])+'/'+filename
+        with UseDatabase(app.config['dbconfig']) as cursor:
+            _SQL = """INSERT INTO short_order
+                    (date, image, message, name, email, phone, communications, ip, browser)
+                    VALUES
+                    (%s, %s, %s, %s, %s, %s, %s, %s, %s)"""
+            cursor.execute(_SQL, (datetime.now(),
+                                emblema,
+                                req.form['message'],                                                            
+                                req.form['customer'],
+                                req.form['email'],
+                                req.form['phone'],
+                                req.form['communications'],                                
+                                req.remote_addr,
+                                req.user_agent.browser                              
+                                ))
+    def read_short_order(req: 'flask_request'):        
+        with UseDatabase(app.config['dbconfig']) as cursor:        
+            cursor.execute("select id, date, image, message, name, email, phone, communications, ip, browser from short_order")
+            return cursor.fetchall()
+            
+
+
 class Article:
     def __init__(self,id,date,image,header,article) -> None:
         self.id=id
@@ -217,10 +257,27 @@ def index() -> 'html':
                             )
 
 
+@app.route('/short_order', methods=['POST', 'GET'])
+def short_order() -> 'html':    
+    if request.method == 'POST':        
+        Orders.add_short_order(request)
+        return render_template('index.html')
+
 
 @app.route('/dashbrd')
 def dashbrd() -> 'html':    
     return render_template('dashbrd.html')
+
+
+@app.route('/dashbrd_orders')
+def dashbrd_orders() -> 'html':
+    list_orders=[]
+    result_db = Orders.read_short_order(request)        
+    for row in result_db:
+        list_orders.append(Orders(row[0],row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9] ))
+    return render_template('dashbrd_orders.html',            
+                                list_orders=list_orders
+                            )
 
 
 @app.route('/dashbrd_offer')

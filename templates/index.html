@@ -12,7 +12,7 @@
 <section class="offer-background">
 
     <span class="title">Что мы предлагаем</span>
-
+    <!--
     <div class="offer-container">
         <div class="offer-cart">
             <img class="offer-image" src="static/images/chelseaLogo.png" alt="Chelsea football club logo">
@@ -54,7 +54,7 @@
             </div>
         </div>
     </div>
-
+-->
     {% for article in list_article %}
     <div class="offer-container">
         <div class="offer-cart">
@@ -128,18 +128,40 @@
 </section>
 
 <sektion class="application-background">
-    <form class="application-form">
-
+    
+        <form method='POST' action='/short_order' enctype="multipart/form-data">
         <span class="title">Оставтье заявку и мы вам перезвоним</span>
 
         <div class="application-inputsContainer">
-            <input class="application-input application-inputUserName" type="text" id="userName" name="userName"
+            <label class="form-label" for="form6Example3">Загрузите образец</label>
+            <input type="file" name="File" aria-label="Upload" />
+            <textarea class="form-control" name="message" placeholder="Write something.." id="form6Example7"
+                rows="4"></textarea>
+            <label class="form-label" for="form6Example7">Описание заказа</label>
+            <input class="application-input application-inputUserName" type="text" id="userName" name="customer"
                 placeholder="Ваше имя">
-            <input class="application-input application-inputPhoneNumber" type="text" id="phoneNumber"
-                name="phoneNumber" placeholder="Ваш номер телефона">
-        </div>
+            <input class="application-input application-inputPhoneNumber" type="text" id="phone"
+                name="phone" placeholder="Ваш номер телефона">
+            <input class="application-input" type="email" id="email" name="email" placeholder="Email">
+            <div>
+                <label style="margin-top: 20px"><strong>Удобный способ связи</strong></label>
+                <br>
+                <input type="radio" id="communications" name="communications" value="WhatsApp">
+                <label for="communications">WhatsApp</label><br>
+                <input type="radio" id="communications" name="communications" value="Telegramm">
+                <label for="communications">Telegramm</label><br>
+                <input type="radio" id="communications" name="communications" value="Viber">
+                <label for="communications">Viber</label><br>
+                <input type="radio" id="communications" name="communications" value="email">
+                <label for="communications">Email</label>
+                <br>
+            </div>
 
+            <button style="margin-top: 20px; width: 90%" class="btn btn-outline-light btn-lg px-5"
+                type="submit">Заказать</button>
+        </div>
     </form>
+    
 </sektion>
 
 <section class="contacts-background"></section>
