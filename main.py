@@ -52,9 +52,29 @@ class Article:
             cursor.execute("SELECT id, date, image, header, article FROM article")
             return cursor.fetchall()
     def editArticle(req: 'flask_request'):
-        pass
+        with UseDatabase(app.config['dbconfig']) as cursor:        
+            id=(req.form['edit_id'])
+            name=(req.form['new_offer_header'])
+            desc=(req.form['new_offer_article'])            
+            _SQL="""UPDATE article 
+                    SET header =%s                
+                    WHERE id=%s"""
+            #_SQL=_SQL+strval
+            data=(name,id)
+            cursor.execute(_SQL,data)
+            _SQL="""UPDATE article                 
+                    SET article=%s
+                    WHERE id=%s"""
+            data=(desc,id)
+            cursor.execute(_SQL,data)
     def removeArticle(req: 'flask_request'):
-        pass
+        with UseDatabase(app.config['dbconfig']) as cursor:        
+            id=(req.form['remove_id'])
+            _SQL="""DELETE FROM article
+                WHERE id=            
+            """
+            #_SQL=_SQL+strval
+            cursor.execute(_SQL+id)
 
 
 class CoastItemLayer:
@@ -100,7 +120,7 @@ class CoastItemLayer:
             data=(name,id)
             cursor.execute(_SQL,data)
             _SQL="""UPDATE product_price_name                 
-                    SET definitions=%s
+                    SET description=%s
                     WHERE id=%s"""
             data=(desc,id)
             cursor.execute(_SQL,data)
@@ -219,6 +239,20 @@ def add_new_article() -> 'html':
     if request.method == 'POST':
         if request.form['add_article'] == 'Добавить':
             Article.writeArticleToDB(request)            
+            return render_template('dashbrd_offer.html'
+                            )
+@app.route('/edit_article', methods=['POST', 'GET'])
+def edit_article() -> 'html':
+    if request.method == 'POST':
+        if request.form['edit_article'] == 'Изменить':
+            Article.editArticle(request)      
+            return render_template('dashbrd_offer.html'
+                            )
+@app.route('/remove_article', methods=['POST', 'GET'])
+def remove_article() -> 'html':
+    if request.method == 'POST':
+        if request.form['remove_article'] == 'Удалить':
+            Article.removeArticle(request)
             return render_template('dashbrd_offer.html'
                             )
 
