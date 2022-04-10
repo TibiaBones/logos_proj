@@ -23,6 +23,40 @@ app.config['dbconfig'] = {'host': '127.0.0.1',
                           'database': 'sportlogo', }
 
 
+class Article:
+    def __init__(self,id,date,image,header,article) -> None:
+        self.id=id
+        self.date=date
+        self.image=image
+        self.header=header
+        self.article=article
+    def writeArticleToDB(req: 'flask_request'):
+        f = request.files['File']
+        filename = secure_filename(f.filename)
+        f.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        #"File saved successfully"
+        image=os.path.join(app.config['UPLOAD_FOLDER'])+'/'+filename
+        with UseDatabase(app.config['dbconfig']) as cursor:
+            _SQL = """INSERT INTO article
+                    (date, image, header, article)
+                    VALUES
+                    (%s, %s, %s, %s)"""
+            cursor.execute(_SQL, (
+                                datetime.now(),                                
+                                image,
+                                req.form['new_offer_header'],
+                                req.form['new_offer_article'],                                
+                                ))
+    def readArticleFromDB(req: 'flask_request'):
+        with UseDatabase(app.config['dbconfig']) as cursor:        
+            cursor.execute("SELECT id, date, image, header, article FROM article")
+            return cursor.fetchall()
+    def editArticle(req: 'flask_request'):
+        pass
+    def removeArticle(req: 'flask_request'):
+        pass
+
+
 class CoastItemLayer:
     def __init__(self, id, name, desc, img) -> None:
         self.id=id
@@ -132,6 +166,10 @@ class CoastItem:
 @app.route('/')
 @app.route('/index')
 def index() -> 'html':
+    list_article=[]
+    result_db = Article.readArticleFromDB(request)        
+    for row in result_db:
+        list_article.append(Article(row[0],row[1],row[2],row[3],row[4]))
     list_pricing_item=[]
     list_pricing_item_layer=[]    
     with UseDatabase(app.config['dbconfig']) as cursor:        
@@ -153,8 +191,9 @@ def index() -> 'html':
             list_pricing_item.append(CoastItem(row[0],row[1],row[2],row[3],row[4])) 
         
     return render_template('index.html',
+                                list_article=list_article,
                                 list_pricing_item_layer=list_pricing_item_layer,
-                                list_pricing_item=list_pricing_item                                                  
+                                list_pricing_item=list_pricing_item                                           
                             )
 
 
@@ -162,6 +201,26 @@ def index() -> 'html':
 @app.route('/dashbrd')
 def dashbrd() -> 'html':    
     return render_template('dashbrd.html')
+
+
+@app.route('/dashbrd_offer')
+def dashbrd_offer() -> 'html':    
+    list_article=[]
+    result_db = Article.readArticleFromDB(request)        
+    for row in result_db:
+        list_article.append(Article(row[0],row[1],row[2],row[3],row[4]))
+    return render_template('dashbrd_offer.html',      
+                            list_article=list_article,          
+                            )    
+
+
+@app.route('/add_new_article', methods=['POST', 'GET'])
+def add_new_article() -> 'html':
+    if request.method == 'POST':
+        if request.form['add_article'] == 'Добавить':
+            Article.writeArticleToDB(request)            
+            return render_template('dashbrd_offer.html'
+                            )
 
 
 @app.route('/add_new_coast_item_header', methods=['POST', 'GET'])

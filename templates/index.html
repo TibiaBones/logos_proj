@@ -55,45 +55,47 @@
         </div>
     </div>
 
+    {% for article in list_article %}
     <div class="offer-container">
         <div class="offer-cart">
-            <img class="offer-image" src="static/images/zatychka4.png" alt="img">
+            <img class="offer-image" src="{{article.image}}" alt="Signboard for establishments">
+
             <div>
-                <span class="textMain">Изготавливаем изделия на заказ</span>
-                <span class="textSec">Если у вас есть идея, но среди наших предложений вы не нашли желаемого - свяжитесь
-                    с нами!</span>
+                <span class="textMain">{{article.header}}</span>
+                <span class="textSec">{{article.article}}</span>
             </div>
         </div>
     </div>
+    {% endfor %}
 </section>
 
 <section class="priсe-background">
-    <span class="title">Наши цены</span>    
-        
-        <div class="priсe-container">
-            {% for header in list_pricing_item_layer %}    
-            <div class="price-cart">
+    <span class="title">Наши цены</span>
 
-                <img class="price-image" src="{{header.img}}" alt="img">
-                
-                <span class="textMain price-textTitle">{{header.name}}</span>
-                {% for desc in list_pricing_item %}
-                {% if desc.id_layer==header.id %}
-                <div class="price-flexContainer">
-                    <div class="priсe-sizeContainer">
-                        <span class="textSec">{{desc.size}}</span>
-                    </div>
+    <div class="priсe-container">
+        {% for header in list_pricing_item_layer %}
+        <div class="price-cart">
 
-                    <div class="priсe-correspPriceContainer">
-                        <span class="textSec">{{desc.coast}}</span>
-                    </div>
+            <img class="price-image" src="{{header.img}}" alt="img">
+
+            <span class="textMain price-textTitle">{{header.name}}</span>
+            {% for desc in list_pricing_item %}
+            {% if desc.id_layer==header.id %}
+            <div class="price-flexContainer">
+                <div class="priсe-sizeContainer">
+                    <span class="textSec">{{desc.size}}</span>
                 </div>
-                {% endif %}
-                {% endfor %}
-            </div>            
-            {% endfor %}    
+
+                <div class="priсe-correspPriceContainer">
+                    <span class="textSec">{{desc.coast}}</span>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
         </div>
-        
+        {% endfor %}
+    </div>
+
 </section>
 
 <section class="gallery-background">
