@@ -264,9 +264,9 @@ def short_order() -> 'html':
         return render_template('index.html')
 
 
-@app.route('/dashbrd')
+@app.route('/dashbrd_main')
 def dashbrd() -> 'html':    
-    return render_template('dashbrd.html')
+    return render_template('dashbrd_main.html')
 
 
 @app.route('/dashbrd_orders')
