@@ -11,6 +11,16 @@
 
 <body>
 
+    <section class="navigation">
+
+        <a class="navigation-links" href="#ourOffers">наши предложения</a>
+        <a class="navigation-links" href="#ourPriсes">цены</a>
+        <a class="navigation-links" href="#ourGallery">галерея</a>
+        <a class="navigation-links" href="#ourApplication">связаться с нами</a>
+        <a class="navigation-links" href="#ourContacts">контакты</a>
+        <!-- <a class="navigation-links" href=""></a> -->
+    </section>
+
     <section class="hallway-background">
         <div class="hallway-info">
             <h1 class="hallway-header">SPORTLOGO<br>Эмблемы и вывески</h1>
@@ -19,7 +29,7 @@
         <img class="hallway-image" src="./images/headerPlug.jpeg" alt="Barcelona football club logo">
     </section>
 
-    <section class="offer-background">
+    <section class="offer-background" id="ourOffers">
 
         <span class="title">Что мы предлагаем</span>
 
@@ -75,7 +85,7 @@
         </div>
     </section>
 
-    <section class="priсe-background">
+    <section class="priсe-background" id="ourPriсes">
         <span class="title">Наши цены</span>
 
         <div class="priсe-container">
@@ -164,36 +174,39 @@
 
     </section>
 
-    <section class="gallery-background">
+    <section class="gallery-background" id="ourGallery">
         <span class="title">Галерея</span>
 
-        <div class="gallery-slider">
-            <div class="gallery-sliderItem">
-                <img class="gallery-img" src="https://tproger.ru/s3/uploads/2020/07/field.jpg">
-            </div>
+        <div class="gallery-sliderBackground">
+            <div class="gallery-slider">
+                <div class="gallery-sliderItem">
+                    <img class="gallery-img" src="https://tproger.ru/s3/uploads/2020/07/field.jpg">
+                </div>
 
-            <div class="gallery-sliderItem">
-                <img class="gallery-img" src="https://tproger.ru/s3/uploads/2020/07/rose.jpg">
-            </div>
+                <div class="gallery-sliderItem">
+                    <img class="gallery-img" src="https://tproger.ru/s3/uploads/2020/07/rose.jpg">
+                </div>
 
 
-            <div class="gallery-sliderItem">
-                <img class="gallery-img" src="https://tproger.ru/s3/uploads/2020/07/leaf.jpg">
-            </div>
+                <div class="gallery-sliderItem">
+                    <img class="gallery-img" src="https://tproger.ru/s3/uploads/2020/07/leaf.jpg">
+                </div>
 
-            <div class="gallery-sliderItem">
-                <img class="gallery-img" src="">
-            </div>
+                <div class="gallery-sliderItem">
+                    <img class="gallery-img" src="">
+                </div>
 
-            <div class="gallery-switchSlide">
-                <a class="prev" onclick="prevSlide()">&#10094;</a>
-                <a class="next" onclick="nextSlide()">&#10095;</a>
+                <div class="gallery-switchSlide">
+                    <a class="prev" onclick="prevSlide()">&#10094;</a>
+                    <a class="next" onclick="nextSlide()">&#10095;</a>
+                </div>
             </div>
         </div>
 
+
     </section>
 
-    <sektion class="application-background">
+    <sektion class="application-background" id="ourApplication">
         <form class="application-form">
 
             <span class="title">Оставтье заявку и мы вам перезвоним</span>
@@ -206,7 +219,7 @@
         </form>
     </sektion>
 
-    <section class="contacts-background"></section>
+    <section class="contacts-background" id="ourContacts"></section>
     <section class="reviews-background"></section>
 
     <footer class="footer-background">
