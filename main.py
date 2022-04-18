@@ -60,8 +60,11 @@ class Orders:
         with UseDatabase(app.config['dbconfig']) as cursor:        
             cursor.execute("select id, date, image, message, name, email, phone, communications, ip, browser from short_order")
             return cursor.fetchall()
-            
-
+    def getListCustomers():
+        with UseDatabase(app.config['dbconfig']) as cursor:        
+            cursor.execute("select id, date, name, email, phone, communications from short_order")
+            return cursor.fetchall()        
+    
 
 class Article:
     def __init__(self,id,date,image,header,article) -> None:
@@ -221,7 +224,33 @@ class CoastItem:
             """
             #_SQL=_SQL+id
             cursor.execute(_SQL+id)
-                          
+
+
+class Feedback:
+    def __init__(self,id, date, name, email, message) -> None:
+        self.id=id
+        self.date=date
+        self.name=name
+        self.email=email
+        self.message=message
+    @staticmethod
+    def writeFeedback(req: 'flask_request'):
+        with UseDatabase(app.config['dbconfig']) as cursor:
+            _SQL = """INSERT INTO feedback
+                    (date, name, email, message)
+                    VALUES
+                    (%s, %s, %s, %s)"""
+            cursor.execute(_SQL, (datetime.now(),
+                                req.form['name'],
+                                req.form['email'],                                                              
+                                req.form['subject'],                                
+                                ))
+    @staticmethod
+    def readFeedback():        
+        with UseDatabase(app.config['dbconfig']) as cursor:        
+            cursor.execute("SELECT id, date, name, email, message FROM feedback")
+            return cursor.fetchall() 
+
 
 @app.route('/')
 @app.route('/index')
@@ -257,6 +286,7 @@ def index() -> 'html':
                             )
 
 
+
 @app.route('/short_order', methods=['POST', 'GET'])
 def short_order() -> 'html':    
     if request.method == 'POST':        
@@ -289,6 +319,32 @@ def dashbrd_offer() -> 'html':
     return render_template('dashbrd_offer.html',      
                             list_article=list_article,          
                             )    
+
+
+@app.route('/feedback', methods=['POST', 'GET'])
+def feedback() -> 'html':   
+    if request.method == 'POST':
+        if request.form['submit'] == 'Submit': 
+            Feedback.writeFeedback(request)
+            return render_template('index.html')
+
+@app.route('/dashbrd_feedback')
+def dashbrd_feedback() -> 'html':   
+    list_feedback=[]        
+    result_db = Feedback.readFeedback()
+    for row in result_db:
+        list_feedback.append(Feedback(row[0],row[1], row[2], row[3], row[4]))
+    return render_template('dashbrd_feedback.html',            
+                            list_feedback=list_feedback
+                            )
+@app.route('/dashbrd_customers')
+def dashbrd_customers() -> 'html':   
+    list_customers=[]
+    result_db = Orders.read_short_order(request)        
+    for row in result_db:
+        list_customers.append(Orders(row[0],row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9] ))
+    return render_template('dashbrd_customers.html',            
+                                list_customers=list_customers)
 
 
 @app.route('/add_new_article', methods=['POST', 'GET'])

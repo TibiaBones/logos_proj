@@ -1,10 +1,9 @@
 {% extends 'dashbrd.html' %}
 {% block body %}
-<!--<div id="layoutSidenav_content">-->
-    <div>
+<div>
     <div>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Клиенты</h1>
+            <h1 class="mt-4">Обратная связь</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
                 <li class="breadcrumb-item active">Tables</li>
@@ -25,33 +24,30 @@
                     <table id="datatablesSimple">
                         <thead>
                             <tr>
-                                <th>#id</th> 
-                                <th>Date</th>                               
-                                <th>Name</th>                                
-                                <th>Email</th>
-                                <th>Phone</th>  
-                                <th>Communications</th>                                                              
+                                <th>#id</th>
+                                <th>Date</th>
+                                <th>Name</th>
+                                <th>Email</th>                                
+                                <th>Messqge</th>                                
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>#id</th> 
-                                <th>Date</th>                               
+                                <th>#id</th>
+                                <th>Date</th>
                                 <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>     
-                                <th>Communications</th>                                                           
+                                <th>Email</th>                                
+                                <th>Messqge</th>                                
                             </tr>
                         </tfoot>
                         <tbody>
-                            {% for item in list_customers %}
+                            {% for item in list_feedback %}
                             <tr>                                
                                 <td>{{item.id}}</td>
-                                <td>{{item.date}}</td>                                
+                                <td>{{item.date}}</td>
                                 <td>{{item.name}}</td>
-                                <td>{{item.email}}</td>
-                                <td>{{item.phone}}</td>                                
-                                <td>{{item.communications}}</td>                                                                
+                                <td>{{item.email}}</td>                                
+                                <td>{{item.message}}</td>                                
                             </tr>
                             {%endfor%}                            
                         </tbody>

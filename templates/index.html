@@ -103,6 +103,7 @@
 
     <div class="gallery-slider">
         <div class="gallery-sliderItem">
+            
             <img class="gallery-img" src="https://tproger.ru/s3/uploads/2020/07/field.jpg">
         </div>
 
@@ -128,20 +129,18 @@
 </section>
 
 <sektion class="application-background">
-    
-        <form method='POST' action='/short_order' enctype="multipart/form-data">
+    <form method='POST' action='/short_order' enctype="multipart/form-data">
         <span class="title">Оставтье заявку и мы вам перезвоним</span>
-
         <div class="application-inputsContainer">
-            <label class="form-label" for="form6Example3">Загрузите образец</label>
+            <label class="form-label" for="form6Example3"><strong>Загрузите образец</strong></label>
             <input type="file" name="File" aria-label="Upload" />
-            <textarea class="form-control" name="message" placeholder="Write something.." id="form6Example7"
+            <textarea style="height:300px; width: 80%" class="application-input" class="form-control" name="message" placeholder="Write something.." id="form6Example7"
                 rows="4"></textarea>
-            <label class="form-label" for="form6Example7">Описание заказа</label>
-            <input class="application-input application-inputUserName" type="text" id="userName" name="customer"
+            <label class="form-label" for="form6Example7"><strong>Описание заказа</strong></label>
+            <input class="application-input " type="text" id="userName" name="customer"
                 placeholder="Ваше имя">
-            <input class="application-input application-inputPhoneNumber" type="text" id="phone"
-                name="phone" placeholder="Ваш номер телефона">
+            <input class="application-input" type="text" id="phone" name="phone"
+                placeholder="Ваш номер телефона">
             <input class="application-input" type="email" id="email" name="email" placeholder="Email">
             <div>
                 <label style="margin-top: 20px"><strong>Удобный способ связи</strong></label>
@@ -156,12 +155,25 @@
                 <label for="communications">Email</label>
                 <br>
             </div>
-
             <button style="margin-top: 20px; width: 90%" class="btn btn-outline-light btn-lg px-5"
                 type="submit">Заказать</button>
         </div>
     </form>
-    
+</sektion>
+
+<sektion class="application-background">
+    <form method='POST' action='/feedback'>
+        <span class="title">Оставтье нам своё ообщение</span>
+        <div class="application-inputsContainer">
+            <label for="name">Ваше имя</label>
+            <input style="width: 80%" class="application-input" type="text" id="name" name="name" placeholder="Ваше имя..">            
+            <label for="email">Email</label>
+            <input style="width: 80%" class="application-input" type="email" id="email" name="email" placeholder="Email">            
+            <label for="subject">Сообщение</label>
+            <textarea style="height:300px; width: 80%" class="application-input" id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>            
+            <input type="submit" name="submit" value="Submit">
+        </div>
+    </form>
 </sektion>
 
 <section class="contacts-background"></section>
