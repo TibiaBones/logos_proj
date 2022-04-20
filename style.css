@@ -22,7 +22,8 @@
 }
 
 .footer-background .footer-flexContainer-sec a,
-.navigation a {
+.navigation a,
+.contacts-background .contacts-flexContainer .contacts-linksContainer a {
     text-decoration: none;
 }
 
@@ -67,15 +68,6 @@
 .navigation a:focus:after {
     width: calc(100% - 10px);
 }
-
-
-/* .navigation a:hover:after {
-    width: calc(100% - 10px);
-}
-
-.navigation a:focus:after {
-    width: calc(100% - 10px);
-} */
 
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -155,9 +147,7 @@ body {
     background-color: var(--White);
     color: var(--Black);
     text-transform: uppercase;
-    /* margin-bottom: 50px;
-    margin-top: 10px; */
-    margin: 50px 0 10px;
+    margin: 50px 0;
 }
 
 .offer-container {
@@ -328,7 +318,6 @@ body {
     height: 100%;
     text-align: center;
     font-size: 20px;
-    /* оформить кнопки */
 }
 
 .prev:hover,
@@ -336,6 +325,87 @@ body {
     opacity: 0.9;
     transition: all 0.3s ease;
 }
+
+.contacts-background {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1500px;
+    background-color: var(--White);
+}
+
+
+/* ------------------------------------------------------------ */
+
+
+/* .contacts-flexContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contacts-container {
+    display: flex;
+    align-items: center;
+}
+
+.contacts-icon {
+    display: block;
+    width: 50px;
+    height: 50px;
+}
+
+.contacts-link {
+    min-width: 180px;
+    height: 50px;
+    margin-left: 30px;
+    
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--Text-light);
+    font-size: 22px;
+} */
+
+.contacts-flexContainer {
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.contacts-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.contacts-icon {
+    margin: 10px 0;
+    display: block;
+    width: 50px;
+    height: 50px;
+}
+
+.contacts-linksContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.contacts-linksSecContainer {
+    line-height: 50px;
+}
+
+.contacts-link {
+    margin: 10px 0 10px 30px;
+    height: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--Text-light);
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+
+/* ------------------------------------------------------------ */
 
 
 /* разобраться с анимацией */
@@ -382,7 +452,6 @@ body {
 }
 
 .footer-links {
-    /* display: block; */
     font-size: 15px;
     line-height: 2;
 }
