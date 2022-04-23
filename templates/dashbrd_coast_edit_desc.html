@@ -45,8 +45,7 @@
                             -->
                             <input type="file" name="File" />
                             <br><br>
-                            <input style="width: 150px" type="submit" value="add" />
-                            <br><br>
+
                             <label for="add_item">Наименование:</label><br>
                             <input style="width: 350px;" type="text" id="add_item" name="new_item_name"><br>
 
@@ -81,11 +80,11 @@
                     <div class="modal-body">
                         <form method='POST' action='/edit_new_coast_item_header'>
                             <!--
-                            <input name="item_name" list="browsers">                            
+                            <input name="item_name" list="browsers">
                             <datalist id="browsers">
                                 {% for item in list_pricing_item_layer %}
                                 <option name="item_name" value="{{item.id}}">{{item.id}} {{item.name}}</option>
-                                
+
                                 {% endfor %}
                             </datalist>
                         -->
@@ -124,14 +123,15 @@
                     <div class="modal-body">
                         <form method='POST' action='/delete_new_coast_item_header'>
                             <!--
-                            <input name="item_name" list="browsers">                            
+                            <input name="item_name" list="browsers">
                             <datalist id="browsers">
                                 {% for item in list_pricing_item_layer %}
                                 <option name="item_name" value="{{item.id}}">{{item.id}} {{item.name}}</option>
-                                
+
                                 {% endfor %}
                             </datalist>
                         -->
+                            <label for="item_header_id">id:</label><br>
                             <input type="text" name="item_header_id">
                             <input type="submit" name="delete_product" value="Удалить">
                         </form>

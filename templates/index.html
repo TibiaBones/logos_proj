@@ -1,5 +1,15 @@
 {% extends 'base.html' %}
 {% block body %}
+<section class="navigation" id="navigationMenu">
+
+    <a class="navigation-links" href="#ourOffers">наши предложения</a>
+    <a class="navigation-links" href="#ourPriсes">цены</a>
+    <a class="navigation-links" href="#ourGallery">галерея</a>
+    <a class="navigation-links" href="#ourApplication">заказать</a>
+    <a class="navigation-links" href="#ourContacts">контакты</a>
+    <a class="navigation-links" href="/dashbrd_main">admin</a>
+    <!-- <a class="navigation-links " href=" "></a> -->
+</section>
 <section class="hallway-background">
     <div class="hallway-info">
         <h1 class="hallway-header">SPORTLOGO<br>Эмблемы и вывески</h1>
@@ -9,7 +19,7 @@
     <img class="hallway-image" src="static/images/headerPlug.jpeg" alt="Barcelona football club logo">
 </section>
 
-<section class="offer-background">
+<section class="offer-background"  id="ourOffers">
 
     <span class="title">Что мы предлагаем</span>
     <!--
@@ -69,7 +79,7 @@
     {% endfor %}
 </section>
 
-<section class="priсe-background">
+<section class="priсe-background" id="ourPriсes">
     <span class="title">Наши цены</span>
 
     <div class="priсe-container">
@@ -98,12 +108,12 @@
 
 </section>
 
-<section class="gallery-background">
+<section class="gallery-background" id="ourGallery">
     <span class="title">Галерея</span>
 
     <div class="gallery-slider">
         <div class="gallery-sliderItem">
-            
+
             <img class="gallery-img" src="https://tproger.ru/s3/uploads/2020/07/field.jpg">
         </div>
 
@@ -128,20 +138,20 @@
 
 </section>
 
-<sektion class="application-background">
+<sektion class="application-background" id="ourApplication">
     <form method='POST' action='/short_order' enctype="multipart/form-data">
         <span class="title">Оставтье заявку и мы вам перезвоним</span>
         <div class="application-inputsContainer">
             <label class="form-label" for="form6Example3"><strong>Загрузите образец</strong></label>
             <input type="file" name="File" aria-label="Upload" />
-            <textarea style="height:300px; width: 80%" class="application-input" class="form-control" name="message" placeholder="Write something.." id="form6Example7"
+            <textarea style="height:200px; width: 70%" class="application-input" class="form-control" name="message" placeholder="Описание заказа .." id="form6Example7"
                 rows="4"></textarea>
-            <label class="form-label" for="form6Example7"><strong>Описание заказа</strong></label>
-            <input class="application-input " type="text" id="userName" name="customer"
+            <label class="form-label" for="form6Example7"><strong>Контакты</strong></label>
+            <input style="width: 70%" class="application-input " type="text" id="userName" name="customer"
                 placeholder="Ваше имя">
-            <input class="application-input" type="text" id="phone" name="phone"
+            <input style="width: 70%" class="application-input" type="text" id="phone" name="phone"
                 placeholder="Ваш номер телефона">
-            <input class="application-input" type="email" id="email" name="email" placeholder="Email">
+            <input style="width: 70%" class="application-input" type="email" id="email" name="email" placeholder="Email">
             <div>
                 <label style="margin-top: 20px"><strong>Удобный способ связи</strong></label>
                 <br>
@@ -161,22 +171,58 @@
     </form>
 </sektion>
 
-<sektion class="application-background">
+<sektion class="application-background" id="ourContacts">
     <form method='POST' action='/feedback'>
         <span class="title">Оставтье нам своё ообщение</span>
         <div class="application-inputsContainer">
             <label for="name">Ваше имя</label>
-            <input style="width: 80%" class="application-input" type="text" id="name" name="name" placeholder="Ваше имя..">            
+            <input style="width: 80%" class="application-input" type="text" id="name" name="name" placeholder="Ваше имя..">
             <label for="email">Email</label>
-            <input style="width: 80%" class="application-input" type="email" id="email" name="email" placeholder="Email">            
+            <input style="width: 80%" class="application-input" type="email" id="email" name="email" placeholder="Email">
             <label for="subject">Сообщение</label>
-            <textarea style="height:300px; width: 80%" class="application-input" id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>            
+            <textarea style="height:300px; width: 80%" class="application-input" id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
             <input type="submit" name="submit" value="Submit">
         </div>
     </form>
 </sektion>
 
-<section class="contacts-background"></section>
+<section class="contacts-background">
+    <div class="contacts-flexContainer">
+        <div class="contacts-container">
+            <svg class="contacts-icon">
+                <a href="https://t.me/">
+                    <use href="#telegram_logo"></use>
+                </a>
+            </svg>
+
+            <svg class="contacts-icon">
+                <a href="https://www.instagram.com/sport_logo_minsk/?utm_medium=copy_link">
+                    <use href="#instagram_logo"></use>
+                </a>
+            </svg>
+
+            <svg class="contacts-icon">
+                <a href="https://vk.com">
+                    <use href="#vk_logo "></use>
+                </a>
+            </svg>
+
+            <svg class="contacts-icon">
+                <a href="tel:+375292821686">
+                    <use href="#phone_logo"></use>
+                </a>
+            </svg>
+        </div>
+
+        <div class="contacts-linksContainer">
+            <a class="contacts-link" href="https://t.me/">Telegram</a>
+            <a class="contacts-link" href="https://www.instagram.com/sport_logo_minsk/?utm_medium=copy_link">Instagram</a>
+            <a class="contacts-link" href="https://vk.com">VK</a>
+            <a class="contacts-link" href="tel:+375292821686">+375 29 282 1686</a>
+        </div>
+    </div>
+</section>
+</section>
 <section class="reviews-background"></section>
 
 <footer class="footer-background">
