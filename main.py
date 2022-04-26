@@ -319,14 +319,14 @@ def login():
 		username = request.form['username']
 		password = request.form['password']
 		cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-		cursor.execute('SELECT * FROM accounts WHERE username = % s AND password = % s', (username, password, ))
+		cursor.execute('SELECT * FROM account WHERE username = % s AND password = % s', (username, password, ))
 		account = cursor.fetchone()
 		if account:
 			session['loggedin'] = True
 			session['id'] = account['id']
 			session['username'] = account['username']
 			msg = 'Logged in successfully !'
-			return render_template('index.html', msg = msg)
+			return render_template('dashbrd.html')
 		else:
 			msg = 'Incorrect username / password !'
 	return render_template('login.html', msg = msg)
@@ -419,11 +419,13 @@ def short_order() -> 'html':
 
 
 @app.route('/dashbrd_main')
+@login_required
 def dashbrd() -> 'html':
     return render_template('dashbrd_main.html')
 
 
 @app.route('/dashbrd_orders')
+@login_required
 def dashbrd_orders() -> 'html':
     list_orders=[]
     result_db = Orders.read_short_order(request)
@@ -435,6 +437,7 @@ def dashbrd_orders() -> 'html':
 
 
 @app.route('/dashbrd_offer')
+@login_required
 def dashbrd_offer() -> 'html':
     list_article=[]
     result_db = Article.readArticleFromDB(request)
@@ -453,6 +456,7 @@ def feedback() -> 'html':
             return render_template('index.html')
 
 @app.route('/dashbrd_feedback')
+@login_required
 def dashbrd_feedback() -> 'html':
     list_feedback=[]
     result_db = Feedback.readFeedback()
@@ -462,6 +466,7 @@ def dashbrd_feedback() -> 'html':
                             list_feedback=list_feedback
                             )
 @app.route('/dashbrd_customers')
+@login_required
 def dashbrd_customers() -> 'html':
     list_customers=[]
     result_db = Orders.read_short_order(request)
@@ -543,6 +548,7 @@ def reove() -> 'html':
 
 
 @app.route('/dashbrd_product')
+@login_required
 def dashbrd_product() -> 'html':
     list_pricing_item_layer=[]
     list_pricing_item=[]
@@ -565,6 +571,7 @@ def dashbrd_product() -> 'html':
 
 
 @app.route('/dashbrd_product_price')
+@login_required
 def dashbrd_coast_edit() -> 'html':
     list_pricing_item_layer=[]
     list_pricing_item=[]
@@ -586,6 +593,7 @@ def dashbrd_coast_edit() -> 'html':
                             )
 
 @app.route('/dashbrd_product_name')
+@login_required
 def dashbrd_coast_edit_desc() -> 'html':
     list_pricing_item_layer=[]
     list_pricing_item=[]
