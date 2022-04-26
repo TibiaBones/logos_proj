@@ -2,17 +2,14 @@
 {% block body %}
 <div>
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Редактирование</h1>
+        <h1 class="mt-4">Редактирование</h1>        
         <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item"><a href="/dashbrd_coast_edit_desc">Продукт</a></li>
-            <li class="breadcrumb-item"><a href="/dashbrd_coast_edit">Описание</a></li>
+            <li class="breadcrumb-item"><a href="/dashbrd_product">Продукт</a></li>
+            <li class="breadcrumb-item active">Цены</li>
         </ol>
         <div class="card mb-4">
             <div class="card-body">
-                DataTables is a third party plugin that is used to generate the demo table below. For more information
-                about DataTables, please visit the
-                <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
-                .
+        
             </div>
         </div>
 
@@ -21,6 +18,7 @@
                 <li style="   display: inline;"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddModal">Добавить</button></li>
                 <li style="   display: inline;"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#EditModal">Изменить</button></li>                
                 <li style="   display: inline;"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#RemoveModal">Удалить</button></li>                
+                
             </ul>
         </div>
         
@@ -37,6 +35,9 @@
                     <div class="modal-body">
                         <form method='POST' action='/add_new_coast_item' enctype="multipart/form-data">            
                             <h1>Размер и цена продукта</h1>
+                            <p>
+                                Выберите из списка наименование продукта и используйте форму ниже для добавления размера и цены продукта
+                            </p>
                             <label for="add_item">Наименование:</label><br>
                             <input name="item_name" list="browsers" >
                             <datalist id="browsers" >
@@ -50,6 +51,7 @@
                             <input type="text" id="size" name="new_item_size_one"><br>
                             <label for="coast">Цена:</label><br>
                             <input type="text" id="coast" name="new_item_coast_one"><br>
+                            <br>
                             <input type="submit" name="add_new_item" value="Добавить">
                             <input type="reset">
                           </form>
@@ -74,6 +76,9 @@
                     <div class="modal-body">
                         <form method='POST' action='/edit_new_coast_item' enctype="multipart/form-data">            
                             <h1>Размер и цена продукта</h1>
+                            <p>
+                                Введите id где необходимо измнить размер или цену и заполните все поля в форме ниже
+                            </p>
                             <label for="edit_id">#id:</label><br>
                             <input name="edit_id" type="text">                            
                             <br>
@@ -81,6 +86,7 @@
                             <input type="text" id="size" name="new_item_size_one"><br>
                             <label for="coast">Цена:</label><br>
                             <input type="text" id="coast" name="new_item_coast_one"><br>
+                            <br>
                             <input type="submit" name="edit_old_item" value="Изменить">
                             <input type="reset">
                           </form>
@@ -105,6 +111,9 @@
                     <div class="modal-body">
                         <form method='POST' action='/remove_new_coast_item' enctype="multipart/form-data">            
                             <h1>Размер и цена продукта</h1>
+                            <p>
+                                Введите id где необходимо удалить размер и цену
+                            </p>
                             <label for="remove_id">#id:</label><br>
                             <input name="remove_id" type="text">                                                                                    
                             <input type="submit" name="remove_old_item" value="Удалить">
@@ -118,7 +127,7 @@
                 </div>
             </div>
         </div>
-
+        <!--
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
@@ -146,11 +155,11 @@
                 </table>
             </div>
         </div>
-
+        -->
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
-                Параметры
+                Прайс
             </div>
             <div class="card-body">
                 <table id="datatablesSimple">

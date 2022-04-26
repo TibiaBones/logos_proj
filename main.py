@@ -570,7 +570,7 @@ def dashbrd_product() -> 'html':
                             )
 
 
-@app.route('/dashbrd_product_price')
+@app.route('/dashbrd_product_coast')
 @login_required
 def dashbrd_coast_edit() -> 'html':
     list_pricing_item_layer=[]
@@ -587,12 +587,12 @@ def dashbrd_coast_edit() -> 'html':
         result_db = cursor.fetchall()
         for row in result_db:
             list_pricing_item.append(CoastItem(row[0],row[1],row[2],row[3],row[4]))
-        return render_template('dashbrd_coast_edit.html',
+        return render_template('dashbrd_product_coast.html',
                             list_pricing_item_layer=list_pricing_item_layer,
                             list_pricing_item=list_pricing_item
                             )
 
-@app.route('/dashbrd_product_name')
+@app.route('/dashbrd_product_desc')
 @login_required
 def dashbrd_coast_edit_desc() -> 'html':
     list_pricing_item_layer=[]
@@ -608,7 +608,7 @@ def dashbrd_coast_edit_desc() -> 'html':
         result_db = cursor.fetchall()
         for row in result_db:
             list_pricing_item.append(CoastItem(row[0],row[1],row[2],row[3],row[4]))
-        return render_template('dashbrd_coast_edit_desc.html',
+        return render_template('dashbrd_product_desc.html',
                             list_pricing_item_layer=list_pricing_item_layer,
                             list_pricing_item=list_pricing_item
                             )
