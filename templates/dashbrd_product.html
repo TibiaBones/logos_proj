@@ -1,0 +1,95 @@
+{% extends 'dashbrd.html' %}
+{% block body %}
+<div>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4"></h1>
+        <section class="jumbotron text-center">
+            <div class="container">
+              <h1>Наш Продукт</h1>
+              <p class="lead text-muted">
+                  Для того чтобы добавить новый продукт, его наименование и описание - выберите опцию <strong>"Описание"</strong>
+                  С помощью <strong>"Цены"</strong> можно добавить, изменить или удалить размер и цену на товар
+              </p>
+              <p>
+                <a href="/dashbrd_product_name" class="btn btn-primary my-2">Описание</a>
+                <a href="/dashbrd_product_price" class="btn btn-secondary my-2">Цены</a>
+              </p>
+            </div>
+          </section>
+        <div class="card mb-4">
+            <div class="card-body">
+                DataTables is a third party plugin that is used to generate the demo table below. For more information
+                about DataTables, please visit the
+                <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
+                .
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Описание
+            </div>
+            <div class="card-body">
+                <table style="width: 100%; background-color:rgba(0, 255, 255, 0)" id="">
+                    <thead style="border: 1px solid rgba(128, 128, 128, 0.548);">
+                        <tr>
+                            <th style="padding:5px;">#id</th>
+                            <th>Name</th>
+                            <th>Definitions</th>
+                        </tr>
+                    </thead>
+                    </tfoot>
+                    <tbody style="border-top: 2px solid rgb(14, 13, 13);">
+                        {% for item in list_pricing_item_layer %}
+                        <tr style="border: 1px solid rgba(128, 128, 128, 0.555);">
+                            <td style="padding:5px;">{{item.id}}</td>
+                            <td>{{item.name}}</td>
+                            <td>{{item.desc}}</td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Параметры
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>#id</th>
+                            <th>Name</th>
+                            <th>Size</th>
+                            <th>Coast</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>#id</th>
+                            <th>Name</th>
+                            <th>Definitions</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        {% for item in list_pricing_item %}
+                        <tr>
+                            <td>{{item.id}}</td>
+                            <td>{{item.name}}</td>
+                            <td>{{item.size}}</td>
+                            <td>{{item.coast}}</td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{%endblock%}

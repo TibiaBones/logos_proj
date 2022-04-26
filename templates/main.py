@@ -6,8 +6,6 @@ from tabnanny import check
 from click import DateTime
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from werkzeug.utils import secure_filename
-from flask_mysqldb import MySQL
-import MySQLdb.cursors
 from DBcm import UseDatabase
 from functools import wraps
 from flask_login import (
@@ -36,44 +34,10 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 #                          'password': 'buLdozerF21',
 #                          'database': 'chobus$sportlogo', }
 #localhost path
-app.secret_key = 'your secret key'
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'sportlogo'
-app.config['MYSQL_PASSWORD'] = 'sportlogo'
-app.config['MYSQL_DB'] = 'sportlogo'
-
 app.config['dbconfig'] = {'host': '127.0.0.1',
                           'user': 'sportlogo',
                           'password': 'sportlogo',
                           'database': 'sportlogo', }
-
-mysql = MySQL(app)
-
-
-class Account:
-    def __init__(self, username, email, password) -> None:
-        self.username=username
-        self.email=email
-        self.password=password
-
-    def register_check_user(req: 'flask_request'):
-        with UseDatabase(app.config['dbconfig']) as cursor:
-            data = req.form['username']		                		    
-            _SQL=('SELECT * FROM account WHERE username = %s')
-            cursor.execute(_SQL,data)		    
-            return cursor.fetchall()
-        
-    def register_new_user(self, uname, email, password):
-        with UseDatabase(app.config['dbconfig']) as cursor:
-            _SQL = """INSERT INTO account
-                    (username, email, password)
-                    VALUES
-                    (%s, %s, %s)"""
-            cursor.execute(_SQL, (
-                                uname,
-                                email,
-                                password
-                                ))
 
 
 class Orders:
@@ -358,7 +322,7 @@ def register():
 		password = request.form['password']
 		email = request.form['email']
 		cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-		cursor.execute('SELECT * FROM account WHERE username = % s', (username, ))
+		cursor.execute('SELECT * FROM accounts WHERE username = % s', (username, ))
 		account = cursor.fetchone()
 		if account:
 			msg = 'Account already exists !'
@@ -369,7 +333,7 @@ def register():
 		elif not username or not password or not email:
 			msg = 'Please fill out the form !'
 		else:
-			cursor.execute('INSERT INTO account VALUES (NULL, % s, % s, % s)', (username, email, password))
+			cursor.execute('INSERT INTO accounts VALUES (NULL, % s, % s, % s)', (username, password, email, ))
 			mysql.connection.commit()
 			msg = 'You have successfully registered !'
 	elif request.method == 'POST':
