@@ -1,0 +1,161 @@
+{% extends 'dashbrd.html' %}
+{% block body %}
+<div>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Наши Работы</h1>        
+        <div class="card mb-4">
+            <div class="card-body">
+                
+            </div>
+        </div>
+
+        <div class="item-options">
+            <ul style="list-style-type: none">
+                <li style="display: inline;"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddModal">Добавить</button></li>
+                <li style="display: inline;"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#EditModal">Изменить</button></li>                
+                <li style="display: inline;"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#RemoveModal">Удалить</button></li>                
+            </ul>
+        </div>
+        
+        <!-- The Modal -->
+        <div class="modal fade" id="AddModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Добавить</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <form method='POST' action='/add_new_work' enctype="multipart/form-data">
+                            <h1>Описание продукта</h1>                            
+                            <input type="file" name="File" />
+                            <br><br>                         
+                            <label for="new_work_header">Заголовок:</label><br>
+                            <input style="width: 350px;" type="text" id="new_work_header" name="new_work_header"><br>
+
+                            <div style="border-radius: 0.5rem; margin-top: 40px">
+                                <label for="new_work_article">Описание</label>
+                                <textarea style="border-radius: 0.5rem; width: 100%; height: 150px"
+                                    id="new_work_article" name="new_work_article"
+                                    placeholder="Write something.."></textarea>
+                            </div>
+                            <input type="submit" name="add_article" value="Добавить">
+                            <input type="reset">                                                    
+                          </form>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="EditModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Изменить</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <form method='POST' action='/edit_article_ourwork' enctype="multipart/form-data">            
+                            <h1>Наши Работы</h1>
+                            <label for="edit_id">#id:</label><br>
+                            <input name="edit_id" type="text">                            
+                            <br>
+                            <label for="new_work_header">Заголовок:</label><br>
+                            <input type="text" id="new_work_header" name="new_work_header"><br>
+                            <div style="border-radius: 0.5rem; margin-top: 40px">
+                                <label for="new_work_article">Описание</label>
+                                <textarea style="border-radius: 0.5rem; width: 100%; height: 150px"
+                                    id="new_work_article" name="new_work_article"
+                                    placeholder="Write something.."></textarea>
+                            </div>                            
+                            <input type="submit" name="edit_article" value="Изменить">
+                            <input type="reset">
+                          </form>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="RemoveModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Удалить</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <form method='POST' action='/remove_article_ourwork' enctype="multipart/form-data">            
+                            <h1>Наши Работы</h1>
+                            <label for="remove_id">#id:</label><br>
+                            <input name="remove_id" type="text">                                                                                    
+                            <input type="submit" name="remove_article" value="Удалить">
+                            <input type="reset">
+                          </form>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Наши Работы
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>#id</th>
+                            <th>date</th>                            
+                            <th>Header</th>
+                            <th>Article</th>
+                            <th>Image</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>#id</th>
+                            <th>date</th>                            
+                            <th>Header</th>
+                            <th>Article</th>
+                            <th>Image</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        {% for item in list_article %}
+                        <tr>
+                            <td>{{item.id}}</td>
+                            <td>{{item.date}}</td>                            
+                            <td>{{item.header}}</td>
+                            <td>{{item.article}}</td>
+                            <td><img style="width: 140px" src="{{item.image}}"></td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{%endblock%}

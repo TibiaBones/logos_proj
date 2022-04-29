@@ -50,30 +50,30 @@ app.config['dbconfig'] = {'host': '127.0.0.1',
 mysql = MySQL(app)
 
 
-class Account:
-    def __init__(self, username, email, password) -> None:
-        self.username=username
-        self.email=email
-        self.password=password
-
-    def register_check_user(req: 'flask_request'):
-        with UseDatabase(app.config['dbconfig']) as cursor:
-            data = req.form['username']		                		    
-            _SQL=('SELECT * FROM account WHERE username = %s')
-            cursor.execute(_SQL,data)		    
-            return cursor.fetchall()
-        
-    def register_new_user(self, uname, email, password):
-        with UseDatabase(app.config['dbconfig']) as cursor:
-            _SQL = """INSERT INTO account
-                    (username, email, password)
-                    VALUES
-                    (%s, %s, %s)"""
-            cursor.execute(_SQL, (
-                                uname,
-                                email,
-                                password
-                                ))
+#class Account:
+#    def __init__(self, username, email, password) -> None:
+#        self.username=username
+#        self.email=email
+#        self.password=password
+#
+#    def register_check_user(req: 'flask_request'):
+#        with UseDatabase(app.config['dbconfig']) as cursor:
+#            data = req.form['username']		                		    
+#            _SQL=('SELECT * FROM account WHERE username = %s')
+#            cursor.execute(_SQL,data)		    
+#            return cursor.fetchall()
+#        
+#    def register_new_user(self, uname, email, password):
+#        with UseDatabase(app.config['dbconfig']) as cursor:
+#            _SQL = """INSERT INTO account
+#                    (username, email, password)
+#                    VALUES
+#                    (%s, %s, %s)"""
+#            cursor.execute(_SQL, (
+#                                uname,
+#                                email,
+#                                password
+#                                ))
 
 
 class Orders:
@@ -169,6 +169,60 @@ class Article:
         with UseDatabase(app.config['dbconfig']) as cursor:
             id=(req.form['remove_id'])
             _SQL="""DELETE FROM article
+                WHERE id=
+            """
+            #_SQL=_SQL+strval
+            cursor.execute(_SQL+id)
+
+
+class Ourwork:
+    def __init__(self,id,date,image,header,article) -> None:
+        self.id=id
+        self.date=date
+        self.image=image
+        self.header=header
+        self.article=article
+    def writeArticleToDB(req: 'flask_request'):
+        f = request.files['File']
+        filename = secure_filename(f.filename)
+        f.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        "File saved successfully"
+        image = (os.path.join('static/imglogo/', filename))
+        with UseDatabase(app.config['dbconfig']) as cursor:
+            _SQL = """INSERT INTO ourwork
+                    (date, image, header, article)
+                    VALUES
+                    (%s, %s, %s, %s)"""
+            cursor.execute(_SQL, (
+                                datetime.now(),
+                                image,
+                                req.form['new_work_header'],
+                                req.form['new_work_article'],
+                                ))
+    def readArticleFromDB(req: 'flask_request'):
+        with UseDatabase(app.config['dbconfig']) as cursor:
+            cursor.execute("SELECT id, date, image, header, article FROM ourwork")
+            return cursor.fetchall()
+    def editArticle(req: 'flask_request'):
+        with UseDatabase(app.config['dbconfig']) as cursor:
+            id=(req.form['edit_id'])
+            name=(req.form['new_work_header'])
+            desc=(req.form['new_work_article'])
+            _SQL="""UPDATE ourwork
+                    SET header =%s
+                    WHERE id=%s"""
+            #_SQL=_SQL+strval
+            data=(name,id)
+            cursor.execute(_SQL,data)
+            _SQL="""UPDATE ourwork
+                    SET article=%s
+                    WHERE id=%s"""
+            data=(desc,id)
+            cursor.execute(_SQL,data)
+    def removeArticle(req: 'flask_request'):
+        with UseDatabase(app.config['dbconfig']) as cursor:
+            id=(req.form['remove_id'])
+            _SQL="""DELETE FROM ourwork
                 WHERE id=
             """
             #_SQL=_SQL+strval
@@ -384,6 +438,10 @@ def index() -> 'html':
     result_db = Article.readArticleFromDB(request)
     for row in result_db:
         list_article.append(Article(row[0],row[1],row[2],row[3],row[4]))
+    list_ourwork=[]
+    result_db = Ourwork.readArticleFromDB(request)
+    for row in result_db:
+        list_ourwork.append(Ourwork(row[0],row[1],row[2],row[3],row[4]))
     list_pricing_item=[]
     list_pricing_item_layer=[]
     with UseDatabase(app.config['dbconfig']) as cursor:
@@ -406,6 +464,7 @@ def index() -> 'html':
 
     return render_template('index.html',
                                 list_article=list_article,
+                                list_ourwork=list_ourwork,
                                 list_pricing_item_layer=list_pricing_item_layer,
                                 list_pricing_item=list_pricing_item
                             )
@@ -444,6 +503,17 @@ def dashbrd_offer() -> 'html':
     for row in result_db:
         list_article.append(Article(row[0],row[1],row[2],row[3],row[4]))
     return render_template('dashbrd_offer.html',
+                            list_article=list_article,
+                            )
+
+@app.route('/dashbrd_ourwork')
+@login_required
+def dashbrd_ourwork() -> 'html':
+    list_article=[]
+    result_db = Ourwork.readArticleFromDB(request)
+    for row in result_db:
+        list_article.append(Ourwork(row[0],row[1],row[2],row[3],row[4]))
+    return render_template('dashbrd_ourwork.html',
                             list_article=list_article,
                             )
 
@@ -496,6 +566,29 @@ def remove_article() -> 'html':
         if request.form['remove_article'] == 'Удалить':
             Article.removeArticle(request)
             return render_template('dashbrd_offer.html'
+                            )
+
+
+@app.route('/add_new_work', methods=['POST', 'GET'])
+def add_new_work() -> 'html':
+    if request.method == 'POST':
+        if request.form['add_article'] == 'Добавить':
+            Ourwork.writeArticleToDB(request)
+            return render_template('dashbrd_ourwork.html'
+                            )
+@app.route('/edit_article_ourwork', methods=['POST', 'GET'])
+def edit_article_ourwork() -> 'html':
+    if request.method == 'POST':
+        if request.form['edit_article'] == 'Изменить':
+            Ourwork.editArticle(request)
+            return render_template('dashbrd_ourwork.html'
+                            )
+@app.route('/remove_article_ourwork', methods=['POST', 'GET'])
+def remove_article_ourwork() -> 'html':
+    if request.method == 'POST':
+        if request.form['remove_article'] == 'Удалить':
+            Ourwork.removeArticle(request)
+            return render_template('dashbrd_ourwork.html'
                             )
 
 

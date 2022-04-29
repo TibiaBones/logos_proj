@@ -19,7 +19,7 @@
     <img class="hallway-image" src="static/images/headerPlug.jpeg" alt="Barcelona football club logo">
 </section>
 
-<section class="offer-background"  id="ourOffers">
+<section class="offer-background" id="ourOffers">
 
     <span class="title">Что мы предлагаем</span>
     <!--
@@ -110,32 +110,52 @@
 
 <section class="gallery-background" id="ourGallery">
     <span class="title">Галерея</span>
-
+    
     <div class="gallery-slider">
+        {% for ourwork in list_ourwork %}
         <div class="gallery-sliderItem">
+            <div class="gallery-img" style="height: 700px; width: 100%; background-image: url({{ourwork.image}});">
+                <div style="position: absolute;
+            right: 100px;
+            bottom: 50px;
+            width: 40%;
+            border: 0px solid #73ad21;
+            padding: 10px;            
+            background-color: rgba(0, 0, 0, 0.397);
+            color:antiquewhite;
+            ">
+                    <h2>{{ourwork.header}}</h2>
+                    <p>{{ourwork.article}}</p>
+                </div>
+            </div>
+        </div>
+        <!--        
+        
+        <div class="gallery-sliderItem" style="background-image: url('https://tproger.ru/s3/uploads/2020/07/field.jpg');">
 
-            <img class="gallery-img" src="https://tproger.ru/s3/uploads/2020/07/field.jpg">
+            <img class="gallery-img" src="{{ourwork.image}}">
         </div>
 
         <div class="gallery-sliderItem">
-            <img class="gallery-img" src="https://tproger.ru/s3/uploads/2020/07/rose.jpg">
+            <img class="gallery-img" src="{{ourwork.image}}">
         </div>
 
 
         <div class="gallery-sliderItem">
-            <img class="gallery-img" src="https://tproger.ru/s3/uploads/2020/07/leaf.jpg">
+            <img class="gallery-img" src="{{ourwork.image}}">
         </div>
 
         <div class="gallery-sliderItem">
             <img class="gallery-img" src="">
         </div>
-
+        -->
         <div class="gallery-switchSlide">
             <a class="prev" onclick="prevSlide()">&#10094;</a>
             <a class="next" onclick="nextSlide()">&#10095;</a>
         </div>
+        {% endfor %}
     </div>
-
+    
 </section>
 
 <sektion class="application-background" id="ourApplication">
@@ -144,14 +164,15 @@
         <div class="application-inputsContainer">
             <label class="form-label" for="form6Example3"><strong>Загрузите образец</strong></label>
             <input type="file" name="File" aria-label="Upload" />
-            <textarea style="height:200px; width: 70%" class="application-input" class="form-control" name="message" placeholder="Описание заказа .." id="form6Example7"
-                rows="4"></textarea>
+            <textarea style="height:200px; width: 70%" class="application-input" class="form-control" name="message"
+                placeholder="Описание заказа .." id="form6Example7" rows="4"></textarea>
             <label class="form-label" for="form6Example7"><strong>Контакты</strong></label>
             <input style="width: 70%" class="application-input " type="text" id="userName" name="customer"
                 placeholder="Ваше имя">
             <input style="width: 70%" class="application-input" type="text" id="phone" name="phone"
                 placeholder="Ваш номер телефона">
-            <input style="width: 70%" class="application-input" type="email" id="email" name="email" placeholder="Email">
+            <input style="width: 70%" class="application-input" type="email" id="email" name="email"
+                placeholder="Email">
             <div>
                 <label style="margin-top: 20px"><strong>Удобный способ связи</strong></label>
                 <br>
@@ -176,11 +197,14 @@
         <span class="title">Оставтье нам своё ообщение</span>
         <div class="application-inputsContainer">
             <label for="name">Ваше имя</label>
-            <input style="width: 80%" class="application-input" type="text" id="name" name="name" placeholder="Ваше имя..">
+            <input style="width: 80%" class="application-input" type="text" id="name" name="name"
+                placeholder="Ваше имя..">
             <label for="email">Email</label>
-            <input style="width: 80%" class="application-input" type="email" id="email" name="email" placeholder="Email">
+            <input style="width: 80%" class="application-input" type="email" id="email" name="email"
+                placeholder="Email">
             <label for="subject">Сообщение</label>
-            <textarea style="height:300px; width: 80%" class="application-input" id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+            <textarea style="height:300px; width: 80%" class="application-input" id="subject" name="subject"
+                placeholder="Write something.." style="height:200px"></textarea>
             <input type="submit" name="submit" value="Submit">
         </div>
     </form>
@@ -216,7 +240,8 @@
 
         <div class="contacts-linksContainer">
             <a class="contacts-link" href="https://t.me/">Telegram</a>
-            <a class="contacts-link" href="https://www.instagram.com/sport_logo_minsk/?utm_medium=copy_link">Instagram</a>
+            <a class="contacts-link"
+                href="https://www.instagram.com/sport_logo_minsk/?utm_medium=copy_link">Instagram</a>
             <a class="contacts-link" href="https://vk.com">VK</a>
             <a class="contacts-link" href="tel:+375292821686">+375 29 282 1686</a>
         </div>
