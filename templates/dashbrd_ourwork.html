@@ -29,20 +29,24 @@
                     <!-- Modal body -->
                     <div class="modal-body">
                         <form method='POST' action='/add_new_work' enctype="multipart/form-data">
-                            <h1>Описание продукта</h1>                            
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    
+                                </div>
+                            </div>
                             <input type="file" name="File" />
                             <br><br>                         
                             <label for="new_work_header">Заголовок:</label><br>
-                            <input style="width: 350px;" type="text" id="new_work_header" name="new_work_header"><br>
+                            <input class="form-control" type="text" id="new_work_header" name="new_work_header"><br>
 
-                            <div style="border-radius: 0.5rem; margin-top: 40px">
+                            <div style="border-radius: 0.5rem;">
                                 <label for="new_work_article">Описание</label>
-                                <textarea style="border-radius: 0.5rem; width: 100%; height: 150px"
+                                <textarea class="form-control" rows="4"
                                     id="new_work_article" name="new_work_article"
                                     placeholder="Write something.."></textarea>
                             </div>
-                            <input type="submit" name="add_article" value="Добавить">
-                            <input type="reset">                                                    
+                            <input class="btn btn-primary my-2" type="submit" name="add_article" value="Добавить">
+                            <input class="btn btn-warning my-2" type="reset">                                                                               
                           </form>
                     </div>
                     <!-- Modal footer -->
@@ -64,20 +68,24 @@
                     <!-- Modal body -->
                     <div class="modal-body">
                         <form method='POST' action='/edit_article_ourwork' enctype="multipart/form-data">            
-                            <h1>Наши Работы</h1>
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    
+                                </div>
+                            </div>
                             <label for="edit_id">#id:</label><br>
-                            <input name="edit_id" type="text">                            
+                            <input class="form-control" name="edit_id" type="text">                            
                             <br>
                             <label for="new_work_header">Заголовок:</label><br>
-                            <input type="text" id="new_work_header" name="new_work_header"><br>
-                            <div style="border-radius: 0.5rem; margin-top: 40px">
+                            <input class="form-control" type="text" id="new_work_header" name="new_work_header"><br>
+                            <div style="border-radius: 0.5rem;">
                                 <label for="new_work_article">Описание</label>
-                                <textarea style="border-radius: 0.5rem; width: 100%; height: 150px"
+                                <textarea class="form-control" rows="4"
                                     id="new_work_article" name="new_work_article"
                                     placeholder="Write something.."></textarea>
-                            </div>                            
-                            <input type="submit" name="edit_article" value="Изменить">
-                            <input type="reset">
+                            </div>                                                        
+                            <input class="btn btn-primary my-2" type="submit" name="edit_article" value="Добавить">
+                            <input class="btn btn-warning my-2" type="reset">
                           </form>
                     </div>
                     <!-- Modal footer -->
@@ -99,11 +107,15 @@
                     <!-- Modal body -->
                     <div class="modal-body">
                         <form method='POST' action='/remove_article_ourwork' enctype="multipart/form-data">            
-                            <h1>Наши Работы</h1>
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    
+                                </div>
+                            </div>
                             <label for="remove_id">#id:</label><br>
-                            <input name="remove_id" type="text">                                                                                    
-                            <input type="submit" name="remove_article" value="Удалить">
-                            <input type="reset">
+                            <input class="form-control" name="remove_id" type="text">   
+                            <input class="btn btn-danger my-2" type="submit" name="remove_article" value="Удалить">
+                            <input class="btn btn-warning my-2" type="reset">
                           </form>
                     </div>
                     <!-- Modal footer -->
