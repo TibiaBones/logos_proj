@@ -40,9 +40,9 @@
                                 </div>
                             </div>                            
                             <label for="add_item">Наименование:</label><br>                            
-                            <select class="form-control" id="browsers" >
+                            <select name="item_name" class="form-control" id="browsers" >
                               {% for item in list_pricing_item_layer %}
-                              <option  name="item_name" value="{{item.id}}">{{item.id}} {{item.name}}</option>
+                              <option type="text"  value="{{item.id}}">{{item.id}} {{item.name}}</option>
                               <!--<input type="text" name="item_id" value="{{item.id}}">-->              
                               {% endfor %}
                             </select>

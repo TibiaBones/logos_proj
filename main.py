@@ -380,7 +380,7 @@ def login():
 			session['id'] = account['id']
 			session['username'] = account['username']
 			msg = 'Logged in successfully !'
-			return render_template('dashbrd.html')
+			return render_template('dashbrd_main.html')
 		else:
 			msg = 'Incorrect username / password !'
 	return render_template('login.html', msg = msg)
@@ -474,7 +474,8 @@ def index() -> 'html':
 def short_order() -> 'html':
     if request.method == 'POST':
         Orders.add_short_order(request)
-        return render_template('index.html')
+        #return render_template('index.html')
+        return redirect('/index')
 
 
 @app.route('/dashbrd_main')
@@ -523,7 +524,8 @@ def feedback() -> 'html':
     if request.method == 'POST':
         if request.form['submit'] == 'Submit':
             Feedback.writeFeedback(request)
-            return render_template('index.html')
+            #return render_template('index.html')
+            return redirect('/index')
 
 @app.route('/dashbrd_feedback')
 @login_required
@@ -603,8 +605,7 @@ def add_new_item_coast_header() -> 'html':
             for row in result_db:
                 list_pricing_item_layer.append(CoastItemLayer(row[0], row[1], row[2], row[3]))
             ###########
-            return render_template('dashbrd_coast_edit.html'
-                            )
+            return redirect('/dashbrd_product_desc')
 
 @app.route('/add_new_coast_item', methods=['POST', 'GET'])
 def add_new_item_coast() -> 'html':
@@ -614,7 +615,7 @@ def add_new_item_coast() -> 'html':
             size_i=request.form['new_item_size_one']
             coast_i=request.form['new_item_coast_one']
             CoastItem.writeCoastProductItem(request)
-            return render_template('dashbrd_coast_edit_desc.html',
+            return redirect('/dashbrd_product_coast',
                             )
 
 @app.route('/edit_new_coast_item', methods=['POST', 'GET'])
@@ -625,11 +626,7 @@ def edit_new_item_coast() -> 'html':
             size_i=request.form['new_item_size_one']
             coast_i=request.form['new_item_coast_one']
             CoastItem.editCoastProductItem(request)
-            return render_template('test_admin.html',
-                                    title="edit old",
-                                    name=name_i,
-                                    size=size_i,
-                                    coast=coast_i
+            return redirect('/dashbrd_product_coast'                                    
             )
 
 @app.route('/remove_new_coast_item', methods=['POST'])
@@ -637,7 +634,7 @@ def reove() -> 'html':
     if request.method == 'POST':
         CoastItem.removeCoastProductItem(request)
         #remove_coast_of_product(request)
-        return render_template('dashbrd_coast_edit_desc.html')
+        return redirect('/dashbrd_product_coast')
 
 
 @app.route('/dashbrd_product')
@@ -711,14 +708,14 @@ def delete_new_coast_item_header() -> 'html':
     if request.method == 'POST':
         CoastItemLayer.removeCoastProductCategory(request)
         #delete_header_name(request)
-        return render_template('dashbrd_coast_edit_desc.html')
+        return redirect('/dashbrd_product_desc')
 
 @app.route('/edit_new_coast_item_header', methods=['POST'])
 def edit_new_coast_item_header() -> 'html':
     if request.method == 'POST':
         CoastItemLayer.editCoastProductCategory(request)
         #edit_header_name(request)
-        return render_template('dashbrd_coast_edit_desc.html')
+        return redirect('/dashbrd_product_desc')
 
 
 if __name__ == '__main__':
