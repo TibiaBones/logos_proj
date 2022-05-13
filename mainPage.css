@@ -1,0 +1,15 @@
+.mainPage-offerСart {
+    height: 350px;
+    max-width: 250px;
+    margin: 25px 25px;
+    /* background-color: var(--White); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mainPage-offerImage {
+    height: 250px;
+    width: 250px;
+    object-fit: cover;
+}
