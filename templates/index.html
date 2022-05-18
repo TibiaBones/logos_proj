@@ -111,8 +111,14 @@
 <section class="gallery-background" id="ourGallery">
     <span class="title">Галерея</span>
     
-    <div class="gallery-slider">
+    <div class="gallery-slider">        
         {% for ourwork in list_ourwork %}
+        <div class="gallery-sliderItem">
+            <img alt="{{ourwork.header}}{{ourwork.article}}" class="gallery-img" src="{{ourwork.image}}">  
+                
+        </div>
+                
+        <!--
         <div class="gallery-sliderItem">
             <div class="gallery-img" style="height: 700px; width: 100%; background-image: url({{ourwork.image}});">
                 <div style="position: absolute;
@@ -129,6 +135,7 @@
                 </div>
             </div>
         </div>
+        -->        
         <!--        
         
         <div class="gallery-sliderItem" style="background-image: url('https://tproger.ru/s3/uploads/2020/07/field.jpg');">
