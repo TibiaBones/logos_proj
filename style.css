@@ -8,6 +8,7 @@
     --Dark-purple: #552b69;
     --Light-purple: #825f92;
     --Black: #000;
+    --Background-LightGray: #f1f1f1;
     /* --General-Blue: #10367C;
     --Accent-Blue: #3077c6;
     --Accent-Yellow: #F5BD41;
@@ -101,7 +102,7 @@ body {
     align-items: center; */
     position: fixed;
     top: 0;
-    z-index: 100;
+    z-index: 10;
     width: 100%;
 }
 
@@ -178,7 +179,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 30px;
     font-weight: 600;
-    background-color: var(--White);
+    /* background-color: var(--White); */
     color: var(--Black);
     text-transform: uppercase;
     margin: 50px 0;
