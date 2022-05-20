@@ -1,17 +1,8 @@
 let slideIndex = 1;
-
 showSlides(slideIndex);
 
-function nextSlide() {
+function switchSlide() {
     showSlides(slideIndex += 1);
-};
-
-function prevSlide() {
-    showSlides(slideIndex -= 1);
-};
-
-function currentSlide(n) {
-    showSlides(slideIndex = n);
 };
 
 function showSlides(n) {

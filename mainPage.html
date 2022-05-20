@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./mainPage.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mainPage.css">
     <title>Workshop</title>
 </head>
 
@@ -61,32 +61,32 @@
             <h1 class="hallway-header">Workshop<br>Ремесленная мастерская</h1>
             <p class="hallway-text">Изготавливаем изделия любой сложности на заказ<br>Бла бла бла Lorem ipsum dolor sit amet consectetur, adipisicing elit. Бла бла!</p>
         </div>
-        <img class="hallway-image" src="./images/mainPage-zatychka2.jpg" alt="">
+        <img class="hallway-image" src="images/mainPage-zatychka2.jpg" alt="">
     </section>
 
     <section class="offer-background" id="ourOffers">
 
         <div class="offer-container">
             <div class="mainPage-offerСart">
-                <img class="mainPage-offerImage" src="./images/arsenalLogo.png" alt="arsenal football club logo">
+                <img class="mainPage-offerImage" src="images/arsenalLogo.png" alt="arsenal football club logo">
                 <span class="textMain">Sportlogo</span>
                 <span class="textSec">Эмблемы спортивных клубов и другие сувениры на спортивную тематику!</span>
             </div>
 
             <div class="mainPage-offerСart">
-                <img class="mainPage-offerImage" src="./images/mainPage-souvenirWood6.jpg" alt="souvenir wood">
+                <img class="mainPage-offerImage" src="images/mainPage-souvenirWood6.jpg" alt="souvenir wood">
                 <span class="textMain">Сувениры из дерева</span>
                 <span class="textSec">Лазерная гравировка и резка по дереву!</span>
             </div>
 
             <div class="mainPage-offerСart">
-                <img class="mainPage-offerImage" src="./images/mainPage-carpet8.jpg" alt="carpet">
+                <img class="mainPage-offerImage" src="images/mainPage-carpet8.jpg" alt="carpet">
                 <span class="textMain">Ковры</span>
                 <span class="textSec">Ковры на заказ радуют твой шоколадный глаз!</span>
             </div>
 
             <div class="mainPage-offerСart">
-                <img class="mainPage-offerImage" src="./images/mainPage-souvenirToOrder.jpg" alt="souvenir to order">
+                <img class="mainPage-offerImage" src="images/mainPage-souvenirToOrder.jpg" alt="souvenir to order">
                 <span class="textMain">Изделия на заказ</span>
                 <span class="textSec">Брат, закажи, в накладе не останешься. От души!</span>
             </div>
@@ -100,20 +100,24 @@
         <span class="title">Примеры наших работ</span>
 
         <div class="mainPage-galleryContainer">
-            <img class="mainPage-img" id="galleryImg" src="./images/zatychka1.png">
-            <img class="mainPage-img" id="galleryImg" src="./images/zatychka2.png">
-            <img class="mainPage-img" id="galleryImg" src="./images/zatychka3.png">
-            <img class="mainPage-img" id="galleryImg" src="./images/mainPage-souvenirWood2.jpg">
-            <img class="mainPage-img" id="galleryImg" src="./images/mainPage-souvenirWood4.jpg">
-            <img class="mainPage-img" id="galleryImg" src="./images/mainPage-carpet6.jpg">
-            <img class="mainPage-img" id="galleryImg" src="./images/mainPage-carpet.jpg">
-            <img class="mainPage-img" id="galleryImg" src="./images/mainPage-carpet7.jpg">
-            <img class="mainPage-img" id="galleryImg" src="./images/mainPage-carpet6.jpg">
+            <img class="mainPage-img" id="galleryImg" onclick="openModal()" src="images/zatychka1.png">
+            <img class="mainPage-img" id="galleryImg" onclick="openModal()" src="images/zatychka2.png">
+            <img class="mainPage-img" id="galleryImg" onclick="openModal()" src="images/zatychka3.png">
+            <img class="mainPage-img" id="galleryImg" onclick="openModal()" src="images/mainPage-souvenirWood2.jpg">
+            <img class="mainPage-img" id="galleryImg" onclick="openModal()" src="images/mainPage-souvenirWood4.jpg">
+            <img class="mainPage-img" id="galleryImg" onclick="openModal()" src="images/mainPage-carpet6.jpg">
+            <img class="mainPage-img" id="galleryImg" onclick="openModal()" src="images/mainPage-carpet.jpg">
+            <img class="mainPage-img" id="galleryImg" onclick="openModal()" src="images/mainPage-carpet7.jpg">
+            <!-- <img class="mainPage-img" id="galleryImg" onclick="openModal()" src="images/mainPage-carpet6.jpg"> -->
         </div>
 
         <div class="mainPage-modalWindow" id="galleryModal">
-            <span class="mainPage-closeModalWindow" id="galleryModal-close">&times;</span>
+            <span class="mainPage-closeModalWindow" id="galleryModal-close" onclick="closeModal()">&times;</span>
             <img class="mainPage-modalImg" id="galleryModalImg">
+            <div class="gallery-switchSlide">
+                <span class="switch" onclick="switchSlide(-1)">&#10094;</span>
+                <span class="switch" onclick="switchSlide(1)">&#10095;</span>
+            </div>
         </div>
     </section>
 

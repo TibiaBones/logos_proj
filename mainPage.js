@@ -1,6 +1,5 @@
-let modal = document.getElementById("galleryModal");
+// let modal = document.getElementById("galleryModal");
 
-//вот тут нужно написать шнягу, которая будет находить все фотки в галерее и по клику на конкретную будет запускать функцию
 // let img = document.getElementById("galleryImg");
 // let modalImg = document.getElementById("galleryModalImg");
 // img.onclick = function() {
@@ -8,18 +7,55 @@ let modal = document.getElementById("galleryModal");
 //     modalImg.src = this.src;
 // }
 
+// let modalClose = document.getElementById("galleryModal-close");
+// modalClose.onclick = function() {
+//     modal.style.display = "none"
+// }
 
-let img = document.getElementsByClassName("mainPage-img");
+
+
+let slideIndex = 1;
+showSlides(slideIndex)
+
 let modalImg = document.getElementById("galleryModalImg");
-img.onclick = function() {
-    modal.style.display = "block";
-    modalImg.src = this.src;
+
+
+function openModal() {
+    document.getElementById("galleryModal").style.display = "block";
+};
+
+function closeModal() {
+    document.getElementById("galleryModal").style.display = "none";
+};
+
+function switchSlide(n) {
+    showSlides(slideIndex += n);
 }
 
+function showSlides(n) {
+    let slides = document.getElementsByClassName("mainPage-img");
+    let switchButtons = document.getElementsByClassName("switch");
 
+    if (n > slides.length) {
+        slideIndex = 1
+    };
 
+    if (n < 1) {
+        slideIndex = slides.length
+    };
 
-let modalClose = document.getElementById("galleryModal-close");
-modalClose.onclick = function() {
-    modal.style.display = "none"
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].addEventListener("click", () => {
+            slideIndex = i + 1;
+            modalImg.src = slides[i].src;
+        })
+    };
+
+    for (let i = 0; i < switchButtons.length; i++) {
+        switchButtons[i].addEventListener("click", () => {
+            modalImg.src = slides[slideIndex - 1].src;
+            console.log(slideIndex);
+        })
+    }
+
 }
