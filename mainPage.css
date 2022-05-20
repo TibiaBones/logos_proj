@@ -1,0 +1,101 @@
+.mainPage-offerСart {
+    height: 400px;
+    max-width: 250px;
+    margin: 25px 25px;
+    /* background-color: var(--White); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 10px 0 var(--Light-gray);
+}
+
+.mainPage-offerImage {
+    height: 250px;
+    width: 250px;
+    object-fit: cover;
+}
+
+.mainPage-galleryBackground {
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 50px;
+    max-width: 1500px;
+    background-color: var(--Background-LightGray);
+}
+
+.mainPage-galleryContainer {
+    max-width: 95%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.mainPage-img {
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.mainPage-img:hover {
+    opacity: 0.7;
+}
+
+.mainPage-modalWindow {
+    display: none;
+    height: 100%;
+    width: 100%;
+    background-color: var(--Black);
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+}
+
+.mainPage-closeModalWindow {
+    display: block;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    position: absolute;
+    top: 30px;
+    right: 60px;
+    z-index: 10000;
+    color: var(--Text-white);
+    font-size: 70px;
+    cursor: pointer;
+}
+
+.mainPage-modalWindowFlexCont {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mainPage-modalContainer {
+    max-height: 80%;
+    max-width: 80%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.mainPage-modalImg {
+    max-height: 700px;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.mainPage-gallerySwitchSlide {
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+}

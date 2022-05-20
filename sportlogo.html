@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.css">
     <title>Sportlogo.by</title>
 </head>
 
@@ -36,22 +36,51 @@
         </symbol>
     </svg>
 
-    <section class="navigation" id="navigationMenu">
 
+
+    <section class="navigation-background ">
+        <div class="navigationPages">
+            <a class="navigation-links" href="sportlogo.html">Sportlogo</a>
+            <a class="navigation-links" href="#">Сувениры</a>
+            <a class="navigation-links" href="#">Ковры</a>
+        </div>
+
+
+        <div class="navigationMenu">
+            <!-- id="navigationMenu" айдишник секции "navigation". Отключил тк не нужен, но пусть лежит на случай если все таки я о чем-то забыл-->
+            <a class="navigation-links" href="#ourOffers">наши предложения</a>
+            <a class="navigation-links" href="#ourPriсes">цены</a>
+            <a class="navigation-links" href="#ourGallery">галерея</a>
+            <a class="navigation-links" href="#ourContacts">контакты</a>
+            <a class="navigation-links" href="#ourApplication">связаться с нами</a>
+            <!-- <a class="navigation-links " href=" "></a> -->
+        </div>
+    </section>
+
+
+
+
+    <!-- <section class="navigation navigationPages">
+        <a class="navigation-links" href="/sportlogo.html">Sportlogo</a>
+        <a class="navigation-links" href="#">Сувениры</a>
+        <a class="navigation-links" href="#">Ковры</a>
+    </section>
+    <section class="navigation">
+        
         <a class="navigation-links" href="#ourOffers">наши предложения</a>
         <a class="navigation-links" href="#ourPriсes">цены</a>
         <a class="navigation-links" href="#ourGallery">галерея</a>
         <a class="navigation-links" href="#ourContacts">контакты</a>
         <a class="navigation-links" href="#ourApplication">связаться с нами</a>
-        <!-- <a class="navigation-links " href=" "></a> -->
-    </section>
+        
+    </section> -->
 
     <section class="hallway-background">
         <div class="hallway-info">
             <h1 class="hallway-header">SPORTLOGO<br>Эмблемы и вывески</h1>
             <p class="hallway-text">Хотите приобрести эмблему любимой команды, украсить свое заведение яркой вывеской или же просто обзавестись прекрасным сувениром?<br>Добро пожаловать!</p>
         </div>
-        <img class="hallway-image" src="./images/headerPlug.jpeg" alt="Barcelona football club logo">
+        <img class="hallway-image" src="images/headerPlug.jpeg" alt="Barcelona football club logo">
     </section>
 
     <section class="offer-background" id="ourOffers">
@@ -60,7 +89,7 @@
 
         <div class="offer-container">
             <div class="offer-cart">
-                <img class="offer-image" src="./images/chelseaLogo.png" alt="Chelsea football club logo">
+                <img class="offer-image" src="images/chelseaLogo.png" alt="Chelsea football club logo">
 
                 <div>
                     <span class="textMain">Эмблема спортивного клуба</span>
@@ -68,8 +97,9 @@
                 </div>
 
             </div>
+
             <div class="offer-cart">
-                <img class="offer-image" src="./images/zatychka1.png" alt="souvenir player jersey">
+                <img class="offer-image" src="images/zatychka1.png" alt="souvenir player jersey">
 
                 <div>
                     <span class="textMain">Сувенир в виде футболки</span>
@@ -77,11 +107,9 @@
                 </div>
 
             </div>
-        </div>
 
-        <div class="offer-container">
             <div class="offer-cart">
-                <img class="offer-image" src="./images/zatychka2.png" alt="Souvenir Player Caricature">
+                <img class="offer-image" src="images/zatychka2.png" alt="Souvenir Player Caricature">
 
                 <div>
                     <span class="textMain">Карикатура игрока</span>
@@ -90,18 +118,16 @@
             </div>
 
             <div class="offer-cart">
-                <img class="offer-image" src="./images/zatychka3.png" alt="Signboard for establishments">
+                <img class="offer-image" src="images/zatychka3.png" alt="Signboard for establishments">
 
                 <div>
                     <span class="textMain">Вывески для заведений</span>
                     <span class="textSec">Обратите внимание на свое заведение яркой и заметной вывеской!</span>
                 </div>
             </div>
-        </div>
 
-        <div class="offer-container">
             <div class="offer-cart">
-                <img class="offer-image" src="./images/zatychka4.png" alt="img">
+                <img class="offer-image" src="images/zatychka4.png" alt="img">
                 <div>
                     <span class="textMain">Изготавливаем изделия на заказ</span>
                     <span class="textSec">Если у вас есть идея, но среди наших предложений вы не нашли желаемого - свяжитесь с нами!</span>
@@ -116,85 +142,56 @@
         <div class="priсe-container">
             <div class="price-cart">
 
-                <img class="price-image" src="./images/zatychka4.png" alt="img">
+                <img class="price-image" src="images/zatychka4.png" alt="img">
 
                 <span class="textMain price-textTitle">Эмблемы в 1 слой</span>
 
                 <div class="price-flexContainer">
-                    <div class="priсe-sizeContainer">
-                        <span class="textSec">30см</span>
-                        <span class="textSec">50см</span>
-                        <span class="textSec">70см</span>
-                        <span class="textSec">90см</span>
-                    </div>
-
-                    <div class="priсe-correspPriceContainer">
-                        <span class="textSec">45 руб</span>
-                        <span class="textSec">65 руб</span>
-                        <span class="textSec">85 руб</span>
-                        <span class="textSec">110 руб</span>
-                    </div>
+                    <span class="textSec">30см&emsp;45 руб</span>
+                    <span class="textSec">50см&emsp;65 руб</span>
+                    <span class="textSec">70см&emsp;85 руб</span>
+                    <span class="textSec">90см&emsp;110 руб</span>
                 </div>
 
             </div>
 
             <div class="price-cart">
 
-                <img class="price-image" src="./images/arsenalLogo.png" alt="img">
+                <img class="price-image" src="images/arsenalLogo.png" alt="img">
 
                 <span class="textMain price-textTitle">Эмблемы в 2 слоя</span>
 
                 <div class="price-flexContainer">
-                    <div class="priсe-sizeContainer">
-                        <span class="textSec">30см</span>
-                        <span class="textSec">50см</span>
-                        <span class="textSec">70см</span>
-                        <span class="textSec">90см</span>
-                    </div>
-
-                    <div class="priсe-correspPriceContainer">
-                        <span class="textSec">50 руб</span>
-                        <span class="textSec">70 руб</span>
-                        <span class="textSec">90 руб</span>
-                        <span class="textSec">120 руб</span>
-                    </div>
+                    <span class="textSec">30см&emsp;50 руб</span>
+                    <span class="textSec">50см&emsp;70 руб</span>
+                    <span class="textSec">70см&emsp;90 руб</span>
+                    <span class="textSec">90см&emsp;120 руб</span>
                 </div>
 
             </div>
 
-            <div class="price-cart price-textTitle">
+            <div class="price-cart">
 
-                <img class="price-image" src="./images/zatychka1.png" alt="img">
+                <img class="price-image" src="images/zatychka1.png" alt="img">
 
-                <span class="textMain">Эмблемы в оригинале</span>
+                <span class="textMain price-textTitle">Эмблемы в оригинале</span>
 
                 <div class="price-flexContainer">
-                    <div class="priсe-sizeContainer">
-                        <span class="textSec">30см</span>
-                        <span class="textSec">50см</span>
-                        <span class="textSec">70см</span>
-                        <span class="textSec">90см</span>
-                    </div>
-
-                    <div class="priсe-correspPriceContainer">
-                        <span class="textSec">55 руб</span>
-                        <span class="textSec">80 руб</span>
-                        <span class="textSec">100 руб</span>
-                        <span class="textSec">140 руб</span>
-                    </div>
+                    <span class="textSec">30см&emsp;55 руб</span>
+                    <span class="textSec">50см&emsp;80 руб</span>
+                    <span class="textSec">70см&emsp;100 руб</span>
+                    <span class="textSec">90см&emsp;140 руб</span>
                 </div>
-
-
             </div>
 
-            <div class="price-cart price-textTitle">
-                <img class="price-image" src="./images/illuminatedLogo.jpg" alt="img">
+            <div class="price-cart">
+                <img class="price-image" src="images/illuminatedLogo.jpg" alt="img">
 
-                <span class="textMain">Эмблемы с подсветкой</span>
-
-                <span class="textSec">55 руб</span>
+                <span class="textMain price-textTitle">Эмблемы с подсветкой</span>
+                <div class="price-flexContainer">
+                    <span class="textSec">55 руб</span>
+                </div>
             </div>
-
         </div>
 
     </section>
@@ -222,8 +219,8 @@
                 </div>
 
                 <div class="gallery-switchSlide">
-                    <a class="prev" onclick="prevSlide() ">&#10094;</a>
-                    <a class="next" onclick="nextSlide() ">&#10095;</a>
+                    <a class="switch" onclick="switchSlide(-1) ">&#10094;</a>
+                    <a class="switch" onclick="switchSlide(1) ">&#10095;</a>
                 </div>
             </div>
         </div>
@@ -233,44 +230,6 @@
 
     <section class="contacts-background" id="ourContacts">
         <span class="title">Наши контакты</span>
-
-        <!-- <div class="contacts-flexContainer">
-            <div class="contacts-container">
-                <svg class="contacts-icon">
-                    <a href="https://t.me/">
-                        <use href="#telegram_logo"></use>
-                    </a>
-                </svg>
-                <a class="contacts-link" href="https://t.me/">Telegram</a>
-            </div>
-
-            <div class="contacts-container">
-                <svg class="contacts-icon">
-                    <a href="https://www.instagram.com/sport_logo_minsk/?utm_medium=copy_link">
-                        <use href="#instagram_logo"></use>
-                    </a>
-                </svg>
-                <a class="contacts-link" href="https://www.instagram.com/sport_logo_minsk/?utm_medium=copy_link">Instagram</a>
-            </div>
-
-            <div class="contacts-container">
-                <svg class="contacts-icon">
-                    <a href="https://vk.com">
-                        <use href="#vk_logo "></use>
-                    </a>
-                </svg>
-                <a class="contacts-link" href="https://vk.com">VK</a>
-            </div>
-
-            <div class="contacts-container">
-                <svg class="contacts-icon">
-                    <a href="tel:+375292821686">
-                        <use href="#phone_logo"></use>
-                    </a>
-                </svg>
-                <a class="contacts-link" href="tel:+375292821686">+375 29 282 1686</a>
-            </div>
-        </div> -->
 
         <div class="contacts-flexContainer">
             <div class="contacts-container">
