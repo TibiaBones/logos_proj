@@ -45,14 +45,11 @@
 
 .mainPage-modalWindow {
     display: none;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     background-color: var(--Black);
-    /* opacity: 0.9; */
     position: fixed;
     z-index: 100;
-    padding-top: 15vh;
-    padding-bottom: 100px;
     left: 0;
     top: 0;
 }
@@ -71,10 +68,34 @@
     cursor: pointer;
 }
 
-.mainPage-modalImg {
-    height: 70vh;
-    margin: auto;
+.mainPage-modalWindowFlexCont {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mainPage-modalContainer {
+    max-height: 80%;
     max-width: 80%;
-    display: block;
+    margin: 0 auto;
+    position: relative;
+}
+
+.mainPage-modalImg {
+    max-height: 700px;
+    width: 100%;
     object-fit: cover;
+    display: block;
+}
+
+.mainPage-gallerySwitchSlide {
+    position: absolute;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
 }

@@ -112,11 +112,16 @@
         </div>
 
         <div class="mainPage-modalWindow" id="galleryModal">
-            <span class="mainPage-closeModalWindow" id="galleryModal-close" onclick="closeModal()">&times;</span>
-            <img class="mainPage-modalImg" id="galleryModalImg">
-            <div class="gallery-switchSlide">
-                <span class="switch" onclick="switchSlide(-1)">&#10094;</span>
-                <span class="switch" onclick="switchSlide(1)">&#10095;</span>
+            <div class="mainPage-modalWindowFlexCont">
+                <span class="mainPage-closeModalWindow" id="galleryModal-close" onclick="closeModal()">&times;</span>
+                <div class="mainPage-modalContainer">
+                    <img class="mainPage-modalImg" id="galleryModalImg">
+
+                    <div class="mainPage-gallerySwitchSlide">
+                        <span class="switch" onclick="switchSlide(-1)">&#10094;</span>
+                        <span class="switch" onclick="switchSlide(1)">&#10095;</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
