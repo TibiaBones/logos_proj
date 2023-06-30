@@ -1,19 +1,3 @@
-// let modal = document.getElementById("galleryModal");
-
-// let img = document.getElementById("galleryImg");
-// let modalImg = document.getElementById("galleryModalImg");
-// img.onclick = function() {
-//     modal.style.display = "block";
-//     modalImg.src = this.src;
-// }
-
-// let modalClose = document.getElementById("galleryModal-close");
-// modalClose.onclick = function() {
-//     modal.style.display = "none"
-// }
-
-
-
 let slideIndex = 1;
 showSlides(slideIndex)
 
@@ -57,5 +41,4 @@ function showSlides(n) {
             console.log(slideIndex);
         })
     }
-
 }

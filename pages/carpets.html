@@ -5,13 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="mainPage.css">
-    <title>Workshop</title>
+    <link rel="stylesheet" href="../style.css">
+    <title>Carpets</title>
 </head>
 
 <body>
-
     <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;visibility:hidden;">
         <symbol id="telegram_logo" viewbox="0 0 16 16">
             <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
@@ -37,17 +35,20 @@
 	c0.242-21.016,5.928-41.605,20.728-55.151l101.953-101.953C369.1,242.121,376.957,238.768,384.375,238.33z"/>
         </symbol>
     </svg>
-    </svg>
+
+
 
     <section class="navigation-background ">
         <div class="navigationPages">
+            <a class="navigation-links" href="../index.html">Главная</a>
             <a class="navigation-links" href="sportlogo.html">Sportlogo</a>
-            <a class="navigation-links" href="#">Сувениры</a>
-            <a class="navigation-links" href="#">Ковры</a>
+            <a class="navigation-links" href="souvenirs.html">Сувениры</a>
+            <a class="navigation-links" href="carpets.html">Ковры</a>
         </div>
 
 
         <div class="navigationMenu">
+            <!-- id="navigationMenu" айдишник секции "navigation". Отключил тк не нужен, но пусть лежит на случай если все таки я о чем-то забыл-->
             <a class="navigation-links" href="#ourOffers">наши предложения</a>
             <a class="navigation-links" href="#ourPriсes">цены</a>
             <a class="navigation-links" href="#ourGallery">галерея</a>
@@ -58,72 +59,129 @@
 
     <section class="hallway-background">
         <div class="hallway-info">
-            <h1 class="hallway-header">Workshop<br>Ремесленная мастерская</h1>
-            <p class="hallway-text">Изготавливаем изделия любой сложности на заказ<br>Бла бла бла Lorem ipsum dolor sit amet consectetur, adipisicing elit. Бла бла!</p>
+            <h1 class="hallway-header">Ковры<br>Подробности о продукции</h1>
+            <p class="hallway-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus facere tempora aliquam dolorum praesentium est provident<br>Добро пожаловать!</p>
         </div>
-        <img class="hallway-image" src="images/mainPage-zatychka2.jpg" alt="">
+        <img class="hallway-image" src="../images/headerPlug.jpeg" alt="Barcelona football club logo">
     </section>
 
     <section class="offer-background" id="ourOffers">
 
+        <span class="title">Что мы предлагаем</span>
+
         <div class="offer-container">
-            <div class="mainPage-offerСart">
-                <img class="mainPage-offerImage" src="images/arsenalLogo.png" alt="arsenal football club logo">
-                <span class="textMain">Sportlogo</span>
-                <span class="textSec">Эмблемы спортивных клубов и другие сувениры на спортивную тематику!</span>
+            <div class="offer-cart">
+                <img class="offer-image" src="../images/mainPage-carpet7.jpg" alt="Chelsea football club logo">
+
+                <div>
+                    <span class="textMain">Выбор из каталога</span>
+                    <span class="textSec">Изготовим яркие сувениры, представленные в каталоге!</span>
+                </div>
+
             </div>
 
-            <div class="mainPage-offerСart">
-                <img class="mainPage-offerImage" src="images/mainPage-souvenirWood6.jpg" alt="souvenir wood">
-                <span class="textMain">Сувениры из дерева</span>
-                <span class="textSec">Лазерная гравировка и резка по дереву!</span>
+            <div class="offer-cart">
+                <img class="offer-image" src="../images/mainPage-carpet6.jpg" alt="souvenir player jersey">
+
+                <div>
+                    <span class="textMain">Изделия на заказ</span>
+                    <span class="textSec">Если вы не нашли в каталоге желаемый продукт, то мы поможем вам воплотить вашу идею!</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="priсe-background" id="ourPriсes">
+        <span class="title">Наши цены</span>
+
+        <div class="priсe-container">
+            <div class="price-cart">
+
+                <img class="price-image" src="../images/zatychka4.png" alt="img">
+
+                <span class="textMain price-textTitle">Эмблемы в 1 слой</span>
+
+                <div class="price-flexContainer">
+                    <span class="textSec">30см&emsp;45 руб</span>
+                    <span class="textSec">50см&emsp;65 руб</span>
+                    <span class="textSec">70см&emsp;85 руб</span>
+                    <span class="textSec">90см&emsp;110 руб</span>
+                </div>
+
             </div>
 
-            <div class="mainPage-offerСart">
-                <img class="mainPage-offerImage" src="images/mainPage-carpet8.jpg" alt="carpet">
-                <span class="textMain">Ковры</span>
-                <span class="textSec">Ковры на заказ радуют твой шоколадный глаз!</span>
+            <div class="price-cart">
+
+                <img class="price-image" src="../images/arsenalLogo.png" alt="img">
+
+                <span class="textMain price-textTitle">Эмблемы в 2 слоя</span>
+
+                <div class="price-flexContainer">
+                    <span class="textSec">30см&emsp;50 руб</span>
+                    <span class="textSec">50см&emsp;70 руб</span>
+                    <span class="textSec">70см&emsp;90 руб</span>
+                    <span class="textSec">90см&emsp;120 руб</span>
+                </div>
+
             </div>
 
-            <div class="mainPage-offerСart">
-                <img class="mainPage-offerImage" src="images/mainPage-souvenirToOrder.jpg" alt="souvenir to order">
-                <span class="textMain">Изделия на заказ</span>
-                <span class="textSec">Брат, закажи, в накладе не останешься. От души!</span>
+            <div class="price-cart">
+
+                <img class="price-image" src="../images/zatychka1.png" alt="img">
+
+                <span class="textMain price-textTitle">Эмблемы в оригинале</span>
+
+                <div class="price-flexContainer">
+                    <span class="textSec">30см&emsp;55 руб</span>
+                    <span class="textSec">50см&emsp;80 руб</span>
+                    <span class="textSec">70см&emsp;100 руб</span>
+                    <span class="textSec">90см&emsp;140 руб</span>
+                </div>
             </div>
 
+            <div class="price-cart">
+                <img class="price-image" src="../images/illuminatedLogo.jpg" alt="img">
 
+                <span class="textMain price-textTitle">Эмблемы с подсветкой</span>
+                <div class="price-flexContainer">
+                    <span class="textSec">55 руб</span>
+                </div>
+            </div>
         </div>
 
     </section>
 
-    <section class="mainPage-galleryBackground">
-        <span class="title">Примеры наших работ</span>
+    <section class="gallery-background" id="ourGallery">
+        <span class="title">Галерея</span>
 
-        <div class="mainPage-galleryContainer">
-            <img class="mainPage-img" id="galleryImg" onclick="openModal()" src="images/zatychka1.png">
-            <img class="mainPage-img" id="galleryImg" onclick="openModal()" src="images/zatychka2.png">
-            <img class="mainPage-img" id="galleryImg" onclick="openModal()" src="images/zatychka3.png">
-            <img class="mainPage-img" id="galleryImg" onclick="openModal()" src="images/mainPage-souvenirWood2.jpg">
-            <img class="mainPage-img" id="galleryImg" onclick="openModal()" src="images/mainPage-souvenirWood4.jpg">
-            <img class="mainPage-img" id="galleryImg" onclick="openModal()" src="images/mainPage-carpet6.jpg">
-            <img class="mainPage-img" id="galleryImg" onclick="openModal()" src="images/mainPage-carpet.jpg">
-            <img class="mainPage-img" id="galleryImg" onclick="openModal()" src="images/mainPage-carpet7.jpg">
-            <!-- <img class="mainPage-img" id="galleryImg" onclick="openModal()" src="images/mainPage-carpet6.jpg"> -->
-        </div>
+        <div class="gallery-sliderBackground">
+            <div class="gallery-slider">
+                <div class="gallery-sliderItem">
+                    <img class="gallery-img" src="https://tproger.ru/s3/uploads/2020/07/field.jpg ">
+                </div>
 
-        <div class="mainPage-modalWindow" id="galleryModal">
-            <div class="mainPage-modalWindowFlexCont">
-                <span class="mainPage-closeModalWindow" id="galleryModal-close" onclick="closeModal()">&times;</span>
-                <div class="mainPage-modalContainer">
-                    <img class="mainPage-modalImg" id="galleryModalImg">
+                <div class="gallery-sliderItem">
+                    <img class="gallery-img" src="https://tproger.ru/s3/uploads/2020/07/rose.jpg ">
+                </div>
 
-                    <div class="mainPage-gallerySwitchSlide">
-                        <span class="switch" onclick="switchSlide(-1)">&#10094;</span>
-                        <span class="switch" onclick="switchSlide(1)">&#10095;</span>
-                    </div>
+
+                <div class="gallery-sliderItem">
+                    <img class="gallery-img" src="https://tproger.ru/s3/uploads/2020/07/leaf.jpg ">
+                </div>
+
+                <div class="gallery-sliderItem">
+                    <img class="gallery-img" src=" ">
+                </div>
+
+                <div class="gallery-switchSlide">
+                    <a class="switch" onclick="switchSlide(-1) ">&#10094;</a>
+                    <a class="switch" onclick="switchSlide(1) ">&#10095;</a>
                 </div>
             </div>
         </div>
+
+
     </section>
 
     <section class="contacts-background" id="ourContacts">
@@ -158,9 +216,9 @@
 
             <div class="contacts-linksContainer">
                 <a class="contacts-link" href="https://t.me/">Telegram</a>
-                <a class="contacts-link" href="https://www.instagram.com/sport_logo_minsk/?utm_medium=copy_link">Instagram</a>
+                <a class="contacts-link" href="https://www.instagram.com">Instagram</a>
                 <a class="contacts-link" href="https://vk.com">VK</a>
-                <a class="contacts-link" href="tel:+375292821686">+375 29 282 1686</a>
+                <a class="contacts-link" href="#">+375 29 111 1111</a>
             </div>
         </div>
 
@@ -188,15 +246,13 @@
         <div class="footer-flexContainer footer-flexContainer-sec">
             <a class="footer-links" href="https://t.me/">Telegram</a>
 
-            <a class="footer-links" href="https://www.instagram.com/sport_logo_minsk/?utm_medium=copy_link">Instagram</a>
+            <a class="footer-links" href="https://www.instagram.com">Instagram</a>
 
-            <a class="footer-links" href="tel:+375292821686">+375 29 282 1686</a>
-
-            <!-- <a class="footer-links ">@mail.com</a> -->
+            <a class="footer-links" href="#">+375 29 111 1111</a>
         </div>
     </footer>
-
 </body>
-<script src="./mainPage.js"></script>
+
+<script src="../main.js"></script>
 
 </html>
